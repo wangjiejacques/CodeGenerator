@@ -31,4 +31,8 @@ class VarSignatureTests: XCTestCase {
         XCTAssertEqual(var2, VarSignature(declaration: "let", name: "name", type: "(String) -> Bool?"))
     }
 
+    func testVar3() {
+        let var3 = VarSignature(string: "  var name: (String?, Bool) -> (String, Bool?) { get set }")
+        XCTAssertEqual(var3, VarSignature(declaration: "var", name: "name", type: "(String?, Bool) -> (String, Bool?)"))
+    }
 }

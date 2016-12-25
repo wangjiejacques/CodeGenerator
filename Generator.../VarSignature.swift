@@ -15,7 +15,7 @@ struct VarSignature {
     let type: String
 
     init(string: String) {
-        guard let result = "(var|let)\\s*(\\S*)\\s*:\\s*(\\S.*\\S)".firstMatch(in: string) else {
+        guard let result = "(var|let)\\s*(\\S*)\\s*:\\s*(\\S[^\\{]*[^ \\{])".firstMatch(in: string) else {
             preconditionFailure("incorrect var format \(string)")
         }
         declaration = string.substring(with: result.rangeAt(1))
