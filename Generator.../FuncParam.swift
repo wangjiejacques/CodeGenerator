@@ -28,7 +28,12 @@ struct FuncParam {
             return
         }
         if labelNameComps.count == 2 {
-            label = labelNameComps[0]
+            let label = labelNameComps[0]
+            if label == "_" {
+                self.label = ""
+            } else {
+                self.label = label
+            }
             name = labelNameComps[1]
             return
         }

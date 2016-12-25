@@ -39,4 +39,11 @@ class FuncSignatureTests: XCTestCase {
         XCTAssertEqual(func2.params[1], FuncParam(label: "closure2Label", name: "closure2", type: "(String?) -> String?"))
     }
 
+    func testFunc3() {
+        let func3 = FuncSignature(string: "func func3(_ param: String)")
+        XCTAssertEqual(func3.name, "func3")
+        XCTAssertEqual(func3.returnType, "Void")
+        XCTAssertEqual(func3.params.count, 1)
+        XCTAssertEqual(func3.params[0], FuncParam(label: "", name: "param", type: "String"))
+    }
 }
