@@ -15,6 +15,17 @@ struct FuncSignature {
     let params: [FuncParam]
     let returnType: String
 
+    var readableName: String {
+        if params.isEmpty {
+            return name
+        }
+        return name + params[0].label.capitalized
+    }
+
+    var isReturnVoid: Bool {
+        return returnType == "Void"
+    }
+
     init(string rawString: String) {
         let string = rawString.replacingOccurrences(of: "@escaping", with: "")
         guard let nameResult = "func ([\\S]*)\\(".firstMatch(in: string) else {
