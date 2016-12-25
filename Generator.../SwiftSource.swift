@@ -8,18 +8,20 @@
 
 import Foundation
 
-public struct SwiftSource {
+struct SwiftSource {
     let source: String
     let lines: [String]
 
     var definition: SourceDefinition?
     var funcSignatures: [FuncSignature] = []
+    var varSignatures: [VarSignature] = []
 
     init(source: String, lines: [String]) {
         self.source = source
         self.lines = lines
         definition = SourceDefinition(lines: lines)
         initFuncSignatures()
+        initVarSignatures()
     }
 
     mutating func initFuncSignatures() {
@@ -30,5 +32,18 @@ public struct SwiftSource {
             funcSignatures.append(funcSignature)
         }
         self.funcSignatures = funcSignatures.map { FuncSignature(string: $0) }
+    }
+
+    mutating func initVarSignatures() {
+        var openBraceCount = 0
+        var varSignatures: [String] = []
+        for line in lines {
+            openBraceCount += line.characters.filter { $0 == "{" }.count
+            openBraceCount -= line.characters.filter { $0 == "}" }.count
+            guard openBraceCount == 1 else { continue }
+            guard let _ = "^(?!.*private)(?!.*static).*\\s(let|var) \\S".firstMatch(in: line) else { continue }
+            varSignatures.append(line)
+        }
+        self.varSignatures = varSignatures.map { VarSignature(string: $0) }
     }
 }

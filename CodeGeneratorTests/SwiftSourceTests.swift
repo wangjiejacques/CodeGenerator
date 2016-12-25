@@ -15,7 +15,7 @@ class SwiftSourceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let source = "//TestClass.swift|import xxx|class TestClass|var var1: String|func func1(param1: String) {\n|xxxx|}|func func2(param2: Bool) -> Bool {|return false|}"
+        let source = "//TestClass.swift|import xxx| var global: String|class TestClass{| var var1: String| static var var2: String| private var var3: String| let var4: String?| func func1(param1: String) {\n|xxxx|var funcVar: String| } | func func2(param2: Bool) -> Bool {| return false|}"
         swiftSource = SwiftSource(source: source, lines: source.components(separatedBy: "|"))
     }
     
@@ -28,15 +28,13 @@ class SwiftSourceTests: XCTestCase {
         XCTAssertEqual(swiftSource.definition, SourceDefinition(lines: swiftSource.lines))
     }
 
-    func testSourceFuncsSignature() {
+    func testSourceFuncsSignatures() {
         XCTAssertEqual(swiftSource.funcSignatures, ["func func1(param1: String) ", "func func2(param2: Bool) -> Bool "].map { FuncSignature(string: $0) })
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//        }
+    func testVarSignatures() {
+        XCTAssertEqual(swiftSource.varSignatures.count, 2)
+        XCTAssertEqual(swiftSource.varSignatures, ["var var1: String", "let var4: String?"].map { VarSignature(string: $0) })
     }
 
 }
