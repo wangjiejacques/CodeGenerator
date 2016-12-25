@@ -11,12 +11,8 @@ import XCTest
 
 class FuncMockTests: XCTestCase {
 
-    var funcMock: FuncMock!
-
     override func setUp() {
         super.setUp()
-        let funcSignature = FuncSignature(string: "func func2(closure: (String?) -> Int?, closure2Label closure2: @escaping (String?) -> String?) -> String? {")
-        funcMock = FuncMock(funcSignature: funcSignature, indentationWidth: 1)
     }
     
     override func tearDown() {
@@ -32,6 +28,8 @@ class FuncMockTests: XCTestCase {
 //    }
 
     func testFunMock() {
+        let funcSignature = FuncSignature(string: "func func2(closure: (String?) -> Int?, closure2Label closure2: @escaping (String?) -> String?) -> String? {")
+        let funcMock = FuncMock(funcSignature: funcSignature, indentationWidth: 1)
         XCTAssertEqual(funcMock.sensibleVariables.count, 2)
         XCTAssertEqual(funcMock.sensibleVariables[0], VarSignature(declaration: "var", name: "func2Closure", type: "(String?) -> Int?"))
         XCTAssertEqual(funcMock.sensibleVariables[1], VarSignature(declaration: "var", name: "func2Closure2", type: "(String?) -> String?"))
@@ -43,5 +41,13 @@ class FuncMockTests: XCTestCase {
         XCTAssertEqual(funcMock.funcBodyLines[1], "  self.func2Closure2 = func2Closure2")
         XCTAssertEqual(funcMock.funcBodyLines[2], "  func2ClosureWasCalled = true")
         XCTAssertEqual(funcMock.funcBodyLines[3], "  return func2ClosureShouldReturn")
+    }
+
+    func testFuncMock1() {
+        let funcSignature = FuncSignature(string: "func func3() {")
+        let funcMock = FuncMock(funcSignature: funcSignature, indentationWidth: 1)
+        XCTAssertEqual(funcMock.sensibleVariables.count, 0)
+        XCTAssertEqual(funcMock.wasCalledVariable, VarSignature(declaration: "var", name: "func3WasCalled", type: "Bool?"))
+        XCTAssertNil(funcMock.returnVariable)
     }
 }

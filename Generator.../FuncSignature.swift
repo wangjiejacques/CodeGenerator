@@ -59,7 +59,7 @@ struct FuncSignature {
         }
         startIndex += 1
         let rawParams = string.substring(with: NSRange(location: startIndex, length: endIndex-startIndex))
-        let paramsString = rawParams.components(separatedBy: ",")
+        let paramsString = rawParams.components(separatedBy: ",").filter { !$0.isEmpty }
         params = paramsString.map { FuncParam(string: $0) }.flatMap { $0 }
 
         guard let returnTypeResult = "->([^>]*)\\{".firstMatch(in: string) else {
