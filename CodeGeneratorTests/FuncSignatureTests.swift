@@ -1,5 +1,5 @@
 //
-//  FuncSignatureTest.swift
+//  FuncSignatureTests.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 25/12/2016.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import CodeGenerator
 
-class FuncSignatureTest: XCTestCase {
+class FuncSignatureTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -37,13 +37,6 @@ class FuncSignatureTest: XCTestCase {
         XCTAssertEqual(func2.params.count, 2)
         XCTAssertEqual(func2.params[0], FuncParam(label: "closure", name: "closure", type: "(String?) -> Int?"))
         XCTAssertEqual(func2.params[1], FuncParam(label: "closure2Label", name: "closure2", type: "(String?) -> String?"))
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

@@ -26,7 +26,7 @@ public struct SwiftSource {
         var funcSignatures: [String] = []
         for line in lines {
             guard let _ = "func .*?\\(".firstMatch(in: line) else { continue }
-           let funcSignature = line.replacingOccurrences(of: "{", with: "").replacingOccurrences(of: "\n", with: "")
+            let funcSignature = line.replacingOccurrences(of: "{", with: "").replacingOccurrences(of: "\n", with: "")
             funcSignatures.append(funcSignature)
         }
         self.funcSignatures = funcSignatures.map { FuncSignature(string: $0) }
