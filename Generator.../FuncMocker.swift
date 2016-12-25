@@ -14,9 +14,11 @@ struct FuncMocker {
     var returnVariable: VarSignature?
     let funcSignature: FuncSignature
     let funcBodyLines: [String]
+    let indentation: String
+    let lines: [String]
 
     init(funcSignature: FuncSignature, indentationWidth: Int) {
-        let indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
+        indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
         self.funcSignature = funcSignature
         for param in funcSignature.params {
             let variable = VarSignature(declaration: "var", name: funcSignature.name + param.name.capitalized, type: param.type)
@@ -36,6 +38,12 @@ struct FuncMocker {
             bodyLines.append(returnLine)
         }
         self.funcBodyLines = bodyLines
+
+        var lines: [String] = []
+        lines.append("\(indentation)\(funcSignature.rawString) {")
+        lines.append(contentsOf: funcBodyLines)
+        lines.append("\(indentation)}")
+        self.lines = lines
     }
 
     private static func funcBodyWithSensible(vars: [VarSignature], indentation: String) -> [String] {
@@ -46,4 +54,8 @@ struct FuncMocker {
         }
         return funcBodyLines
     }
+}
+
+extension FuncMocker {
+
 }

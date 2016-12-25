@@ -52,3 +52,13 @@ extension FuncParam: Equatable {
         return l.label == r.label && l.name == r.name && l.type == r.type
     }
 }
+
+extension FuncParam {
+    var rawString: String {
+        let rawString = "\(name): \(type)"
+        if name == label {
+            return rawString
+        }
+        return "\(label) \(rawString)"
+    }
+}

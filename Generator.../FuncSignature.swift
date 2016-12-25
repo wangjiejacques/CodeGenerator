@@ -75,3 +75,14 @@ extension FuncSignature: Equatable {
         return l.name == r.name && l.params == r.params && l.returnType == r.returnType
     }
 }
+
+extension FuncSignature {
+    var rawString: String {
+        let paramsString = params.map { $0.rawString }.joined(separator: ", ")
+        let rawString = "func \(name)(\(paramsString))"
+        if isReturnVoid {
+            return rawString
+        }
+        return "\(rawString) -> \(returnType)"
+    }
+}

@@ -12,7 +12,7 @@ struct InterfaceSignature {
     let interfaceSource: String
     let lines: [String]
 
-    var definition: InterfaceDefinition?
+    var definition: InterfaceDefinition
     var funcSignatures: [FuncSignature] = []
     var varSignatures: [VarSignature] = []
 

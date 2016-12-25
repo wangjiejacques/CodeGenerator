@@ -35,3 +35,9 @@ extension VarSignature: Equatable {
         return l.declaration == r.declaration && l.name == r.name && l.type == r.type
     }
 }
+
+extension VarSignature {
+    var rawString: String {
+        return "\(declaration) \(name): \(type)"
+    }
+}
