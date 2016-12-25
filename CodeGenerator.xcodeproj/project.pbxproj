@@ -12,10 +12,10 @@
 		A01E46801E0FE6CB00395AED /* InterfaceSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46771E0FE21500395AED /* InterfaceSignature.swift */; };
 		A01E46811E0FE6DA00395AED /* String+regexr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920901E0F3AEF005A6E89 /* String+regexr.swift */; };
 		A01E46831E0FF78300395AED /* InterfaceMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46821E0FF78300395AED /* InterfaceMocker.swift */; };
-		A01E46851E0FF94100395AED /* SourceDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46841E0FF94100395AED /* SourceDefinition.swift */; };
+		A01E46851E0FF94100395AED /* InterfaceDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46841E0FF94100395AED /* InterfaceDefinition.swift */; };
 		A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46861E0FF94C00395AED /* FuncSignature.swift */; };
 		A01E468A1E100FB200395AED /* FuncParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46891E100FB200395AED /* FuncParam.swift */; };
-		A01E468B1E1010BB00395AED /* SourceDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46841E0FF94100395AED /* SourceDefinition.swift */; };
+		A01E468B1E1010BB00395AED /* InterfaceDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46841E0FF94100395AED /* InterfaceDefinition.swift */; };
 		A01E468C1E1010BE00395AED /* FuncSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46861E0FF94C00395AED /* FuncSignature.swift */; };
 		A01E468D1E1010C100395AED /* FuncParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46891E100FB200395AED /* FuncParam.swift */; };
 		A01E46911E1017F100395AED /* FuncSignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46901E1017F100395AED /* FuncSignatureTests.swift */; };
@@ -72,7 +72,7 @@
 		A01E46771E0FE21500395AED /* InterfaceSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSignature.swift; sourceTree = "<group>"; };
 		A01E467D1E0FE57A00395AED /* InterfaceSignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSignatureTests.swift; sourceTree = "<group>"; };
 		A01E46821E0FF78300395AED /* InterfaceMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceMocker.swift; sourceTree = "<group>"; };
-		A01E46841E0FF94100395AED /* SourceDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceDefinition.swift; sourceTree = "<group>"; };
+		A01E46841E0FF94100395AED /* InterfaceDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceDefinition.swift; sourceTree = "<group>"; };
 		A01E46861E0FF94C00395AED /* FuncSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSignature.swift; sourceTree = "<group>"; };
 		A01E46891E100FB200395AED /* FuncParam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncParam.swift; sourceTree = "<group>"; };
 		A01E46901E1017F100395AED /* FuncSignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSignatureTests.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				A01E46771E0FE21500395AED /* InterfaceSignature.swift */,
-				A01E46841E0FF94100395AED /* SourceDefinition.swift */,
+				A01E46841E0FF94100395AED /* InterfaceDefinition.swift */,
 				A01E46861E0FF94C00395AED /* FuncSignature.swift */,
 				A01E46891E100FB200395AED /* FuncParam.swift */,
 				A01E46921E102CBB00395AED /* VarSignature.swift */,
@@ -362,7 +362,7 @@
 				A039205F1E0F3A7B005A6E89 /* ViewController.swift in Sources */,
 				A01E46811E0FE6DA00395AED /* String+regexr.swift in Sources */,
 				A01E468C1E1010BE00395AED /* FuncSignature.swift in Sources */,
-				A01E468B1E1010BB00395AED /* SourceDefinition.swift in Sources */,
+				A01E468B1E1010BB00395AED /* InterfaceDefinition.swift in Sources */,
 				A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */,
 				A01E46801E0FE6CB00395AED /* InterfaceSignature.swift in Sources */,
 				A01E468D1E1010C100395AED /* FuncParam.swift in Sources */,
@@ -387,7 +387,7 @@
 			files = (
 				A01E46931E102CBB00395AED /* VarSignature.swift in Sources */,
 				A03920851E0F3A8B005A6E89 /* SourceEditorExtension.swift in Sources */,
-				A01E46851E0FF94100395AED /* SourceDefinition.swift in Sources */,
+				A01E46851E0FF94100395AED /* InterfaceDefinition.swift in Sources */,
 				A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */,
 				A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */,
 				A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */,

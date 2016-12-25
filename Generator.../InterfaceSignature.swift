@@ -9,17 +9,17 @@
 import Foundation
 
 struct InterfaceSignature {
-    let source: String
+    let interfaceSource: String
     let lines: [String]
 
-    var definition: SourceDefinition?
+    var definition: InterfaceDefinition?
     var funcSignatures: [FuncSignature] = []
     var varSignatures: [VarSignature] = []
 
-    init(source: String, lines: [String]) {
-        self.source = source
+    init(interfaceSource: String, lines: [String]) {
+        self.interfaceSource = interfaceSource
         self.lines = lines
-        definition = SourceDefinition(lines: lines)
+        definition = InterfaceDefinition(lines: lines)
         initFuncSignatures()
         initVarSignatures()
     }

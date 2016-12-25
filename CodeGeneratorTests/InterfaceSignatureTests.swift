@@ -16,7 +16,7 @@ class InterfaceSignatureTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let source = "//TestClass.swift|import xxx| var global: String|class TestClass{| var var1: String| static var var2: String| private var var3: String| let var4: String?| func func1(param1: String) {\n|xxxx|var funcVar: String| } | func func2(param2: Bool) -> Bool {| return false|}"
-        interfaceSignature = InterfaceSignature(source: source, lines: source.components(separatedBy: "|"))
+        interfaceSignature = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "|"))
     }
     
     override func tearDown() {
@@ -24,8 +24,8 @@ class InterfaceSignatureTests: XCTestCase {
         super.tearDown()
     }
 
-    func testSourceDefinition() {
-        XCTAssertEqual(interfaceSignature.definition, SourceDefinition(lines: interfaceSignature.lines))
+    func testInterfaceDefinition() {
+        XCTAssertEqual(interfaceSignature.definition, InterfaceDefinition(lines: interfaceSignature.lines))
     }
 
     func testSourceFuncsSignatures() {

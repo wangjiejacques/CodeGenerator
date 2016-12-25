@@ -9,10 +9,10 @@
 import Foundation
 
 struct InterfaceMocker {
-    let source: InterfaceSignature
+    let interfaceSignature: InterfaceSignature
 
-    init(source: InterfaceSignature) {
-        self.source = source
+    init(interfaceSignature: InterfaceSignature) {
+        self.interfaceSignature = interfaceSignature
     }
 
     

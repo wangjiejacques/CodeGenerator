@@ -1,5 +1,5 @@
 //
-//  SourceDefinition.swift
+//  InterfaceDefinition.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 25/12/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SourceDefinition {
+struct InterfaceDefinition {
     let name: String
     /// can be class, struct, protocol, extension...
     let type: String
@@ -24,12 +24,12 @@ struct SourceDefinition {
             lineIndex = index
             return
         }
-        preconditionFailure("source format incorrect")
+        preconditionFailure("interface format incorrect")
     }
 }
 
-extension SourceDefinition: Equatable {
-    static func ==(l: SourceDefinition, r: SourceDefinition) -> Bool {
+extension InterfaceDefinition: Equatable {
+    static func ==(l: InterfaceDefinition, r: InterfaceDefinition) -> Bool {
         return l.name == r.name && l.type == r.type && l.lineIndex == r.lineIndex
     }
 }
