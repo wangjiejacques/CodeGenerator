@@ -1,5 +1,5 @@
 //
-//  SwiftMocker.swift
+//  InterfaceMocker.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 25/12/2016.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct SwiftMocker {
-    let source: SwiftSource
+struct InterfaceMocker {
+    let source: InterfaceSignature
 
-    init(source: SwiftSource) {
+    init(source: InterfaceSignature) {
         self.source = source
     }
 

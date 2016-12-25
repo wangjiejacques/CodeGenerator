@@ -1,5 +1,5 @@
 //
-//  SwiftSource.swift
+//  InterfaceSignature.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 25/12/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SwiftSource {
+struct InterfaceSignature {
     let source: String
     let lines: [String]
 

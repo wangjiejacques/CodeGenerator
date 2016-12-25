@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A01E46781E0FE21500395AED /* SwiftSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46771E0FE21500395AED /* SwiftSource.swift */; };
-		A01E467E1E0FE57A00395AED /* SwiftSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E467D1E0FE57A00395AED /* SwiftSourceTests.swift */; };
-		A01E46801E0FE6CB00395AED /* SwiftSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46771E0FE21500395AED /* SwiftSource.swift */; };
+		A01E46781E0FE21500395AED /* InterfaceSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46771E0FE21500395AED /* InterfaceSignature.swift */; };
+		A01E467E1E0FE57A00395AED /* InterfaceSignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E467D1E0FE57A00395AED /* InterfaceSignatureTests.swift */; };
+		A01E46801E0FE6CB00395AED /* InterfaceSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46771E0FE21500395AED /* InterfaceSignature.swift */; };
 		A01E46811E0FE6DA00395AED /* String+regexr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920901E0F3AEF005A6E89 /* String+regexr.swift */; };
-		A01E46831E0FF78300395AED /* SwiftMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46821E0FF78300395AED /* SwiftMocker.swift */; };
+		A01E46831E0FF78300395AED /* InterfaceMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46821E0FF78300395AED /* InterfaceMocker.swift */; };
 		A01E46851E0FF94100395AED /* SourceDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46841E0FF94100395AED /* SourceDefinition.swift */; };
 		A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46861E0FF94C00395AED /* FuncSignature.swift */; };
 		A01E468A1E100FB200395AED /* FuncParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46891E100FB200395AED /* FuncParam.swift */; };
@@ -22,7 +22,7 @@
 		A01E46931E102CBB00395AED /* VarSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46921E102CBB00395AED /* VarSignature.swift */; };
 		A01E46951E1030E000395AED /* VarSignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46941E1030E000395AED /* VarSignatureTests.swift */; };
 		A01E46961E10313E00395AED /* VarSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46921E102CBB00395AED /* VarSignature.swift */; };
-		A01E46A01E105EE900395AED /* FuncMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E469F1E105EE900395AED /* FuncMock.swift */; };
+		A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E469F1E105EE900395AED /* FuncMocker.swift */; };
 		A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039205C1E0F3A7B005A6E89 /* AppDelegate.swift */; };
 		A039205F1E0F3A7B005A6E89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039205E1E0F3A7B005A6E89 /* ViewController.swift */; };
 		A03920611E0F3A7B005A6E89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A03920601E0F3A7B005A6E89 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		A039208B1E0F3A8B005A6E89 /* Generator....appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A039207D1E0F3A8B005A6E89 /* Generator....appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920901E0F3AEF005A6E89 /* String+regexr.swift */; };
 		A07FE2771E106CFE00809837 /* FuncMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FE2761E106CFE00809837 /* FuncMockTests.swift */; };
-		A07FE2781E106D5C00809837 /* FuncMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E469F1E105EE900395AED /* FuncMock.swift */; };
+		A07FE2781E106D5C00809837 /* FuncMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E469F1E105EE900395AED /* FuncMocker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,16 +69,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A01E46771E0FE21500395AED /* SwiftSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSource.swift; sourceTree = "<group>"; };
-		A01E467D1E0FE57A00395AED /* SwiftSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSourceTests.swift; sourceTree = "<group>"; };
-		A01E46821E0FF78300395AED /* SwiftMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMocker.swift; sourceTree = "<group>"; };
+		A01E46771E0FE21500395AED /* InterfaceSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSignature.swift; sourceTree = "<group>"; };
+		A01E467D1E0FE57A00395AED /* InterfaceSignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSignatureTests.swift; sourceTree = "<group>"; };
+		A01E46821E0FF78300395AED /* InterfaceMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceMocker.swift; sourceTree = "<group>"; };
 		A01E46841E0FF94100395AED /* SourceDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceDefinition.swift; sourceTree = "<group>"; };
 		A01E46861E0FF94C00395AED /* FuncSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSignature.swift; sourceTree = "<group>"; };
 		A01E46891E100FB200395AED /* FuncParam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncParam.swift; sourceTree = "<group>"; };
 		A01E46901E1017F100395AED /* FuncSignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSignatureTests.swift; sourceTree = "<group>"; };
 		A01E46921E102CBB00395AED /* VarSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarSignature.swift; sourceTree = "<group>"; };
 		A01E46941E1030E000395AED /* VarSignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarSignatureTests.swift; sourceTree = "<group>"; };
-		A01E469F1E105EE900395AED /* FuncMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncMock.swift; sourceTree = "<group>"; };
+		A01E469F1E105EE900395AED /* FuncMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncMocker.swift; sourceTree = "<group>"; };
 		A03920591E0F3A7B005A6E89 /* CodeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A039205C1E0F3A7B005A6E89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A039205E1E0F3A7B005A6E89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		A01E46881E0FF95900395AED /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A01E46771E0FE21500395AED /* SwiftSource.swift */,
+				A01E46771E0FE21500395AED /* InterfaceSignature.swift */,
 				A01E46841E0FF94100395AED /* SourceDefinition.swift */,
 				A01E46861E0FF94C00395AED /* FuncSignature.swift */,
 				A01E46891E100FB200395AED /* FuncParam.swift */,
@@ -139,7 +139,8 @@
 		A01E469E1E105EB400395AED /* Mocking */ = {
 			isa = PBXGroup;
 			children = (
-				A01E469F1E105EE900395AED /* FuncMock.swift */,
+				A01E469F1E105EE900395AED /* FuncMocker.swift */,
+				A01E46821E0FF78300395AED /* InterfaceMocker.swift */,
 			);
 			name = Mocking;
 			sourceTree = "<group>";
@@ -180,7 +181,7 @@
 		A039206D1E0F3A7B005A6E89 /* CodeGeneratorTests */ = {
 			isa = PBXGroup;
 			children = (
-				A01E467D1E0FE57A00395AED /* SwiftSourceTests.swift */,
+				A01E467D1E0FE57A00395AED /* InterfaceSignatureTests.swift */,
 				A039206E1E0F3A7B005A6E89 /* CodeGeneratorTests.swift */,
 				A01E46901E1017F100395AED /* FuncSignatureTests.swift */,
 				A01E46941E1030E000395AED /* VarSignatureTests.swift */,
@@ -206,7 +207,6 @@
 				A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */,
 				A03920861E0F3A8B005A6E89 /* SourceEditorCommand.swift */,
 				A03920901E0F3AEF005A6E89 /* String+regexr.swift */,
-				A01E46821E0FF78300395AED /* SwiftMocker.swift */,
 				A03920881E0F3A8B005A6E89 /* Info.plist */,
 				A03920821E0F3A8B005A6E89 /* Supporting Files */,
 			);
@@ -358,13 +358,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01E46961E10313E00395AED /* VarSignature.swift in Sources */,
-				A07FE2781E106D5C00809837 /* FuncMock.swift in Sources */,
+				A07FE2781E106D5C00809837 /* FuncMocker.swift in Sources */,
 				A039205F1E0F3A7B005A6E89 /* ViewController.swift in Sources */,
 				A01E46811E0FE6DA00395AED /* String+regexr.swift in Sources */,
 				A01E468C1E1010BE00395AED /* FuncSignature.swift in Sources */,
 				A01E468B1E1010BB00395AED /* SourceDefinition.swift in Sources */,
 				A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */,
-				A01E46801E0FE6CB00395AED /* SwiftSource.swift in Sources */,
+				A01E46801E0FE6CB00395AED /* InterfaceSignature.swift in Sources */,
 				A01E468D1E1010C100395AED /* FuncParam.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01E46951E1030E000395AED /* VarSignatureTests.swift in Sources */,
-				A01E467E1E0FE57A00395AED /* SwiftSourceTests.swift in Sources */,
+				A01E467E1E0FE57A00395AED /* InterfaceSignatureTests.swift in Sources */,
 				A01E46911E1017F100395AED /* FuncSignatureTests.swift in Sources */,
 				A07FE2771E106CFE00809837 /* FuncMockTests.swift in Sources */,
 				A039206F1E0F3A7B005A6E89 /* CodeGeneratorTests.swift in Sources */,
@@ -388,11 +388,11 @@
 				A01E46931E102CBB00395AED /* VarSignature.swift in Sources */,
 				A03920851E0F3A8B005A6E89 /* SourceEditorExtension.swift in Sources */,
 				A01E46851E0FF94100395AED /* SourceDefinition.swift in Sources */,
-				A01E46A01E105EE900395AED /* FuncMock.swift in Sources */,
+				A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */,
 				A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */,
 				A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */,
-				A01E46781E0FE21500395AED /* SwiftSource.swift in Sources */,
-				A01E46831E0FF78300395AED /* SwiftMocker.swift in Sources */,
+				A01E46781E0FE21500395AED /* InterfaceSignature.swift in Sources */,
+				A01E46831E0FF78300395AED /* InterfaceMocker.swift in Sources */,
 				A03920871E0F3A8B005A6E89 /* SourceEditorCommand.swift in Sources */,
 				A01E468A1E100FB200395AED /* FuncParam.swift in Sources */,
 			);

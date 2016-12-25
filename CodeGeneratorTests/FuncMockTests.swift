@@ -1,5 +1,5 @@
 //
-//  FuncMockTests.swift
+//  FuncMockerTests.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 25/12/2016.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import CodeGenerator
 
-class FuncMockTests: XCTestCase {
+class FuncMockerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -29,25 +29,25 @@ class FuncMockTests: XCTestCase {
 
     func testFunMock() {
         let funcSignature = FuncSignature(string: "func func2(closure: (String?) -> Int?, closure2Label closure2: @escaping (String?) -> String?) -> String? {")
-        let funcMock = FuncMock(funcSignature: funcSignature, indentationWidth: 1)
-        XCTAssertEqual(funcMock.sensibleVariables.count, 2)
-        XCTAssertEqual(funcMock.sensibleVariables[0], VarSignature(declaration: "var", name: "func2Closure", type: "(String?) -> Int?"))
-        XCTAssertEqual(funcMock.sensibleVariables[1], VarSignature(declaration: "var", name: "func2Closure2", type: "(String?) -> String?"))
-        XCTAssertEqual(funcMock.wasCalledVariable, VarSignature(declaration: "var", name: "func2ClosureWasCalled", type: "Bool?"))
-        XCTAssertEqual(funcMock.returnVariable, VarSignature(declaration: "var", name: "func2ClosureShouldReturn", type: "String?"))
+        let funcMocker = FuncMocker(funcSignature: funcSignature, indentationWidth: 1)
+        XCTAssertEqual(funcMocker.sensibleVariables.count, 2)
+        XCTAssertEqual(funcMocker.sensibleVariables[0], VarSignature(declaration: "var", name: "func2Closure", type: "(String?) -> Int?"))
+        XCTAssertEqual(funcMocker.sensibleVariables[1], VarSignature(declaration: "var", name: "func2Closure2", type: "(String?) -> String?"))
+        XCTAssertEqual(funcMocker.wasCalledVariable, VarSignature(declaration: "var", name: "func2ClosureWasCalled", type: "Bool?"))
+        XCTAssertEqual(funcMocker.returnVariable, VarSignature(declaration: "var", name: "func2ClosureShouldReturn", type: "String?"))
 
-        XCTAssertEqual(funcMock.funcBodyLines.count, 4)
-        XCTAssertEqual(funcMock.funcBodyLines[0], "  self.func2Closure = func2Closure")
-        XCTAssertEqual(funcMock.funcBodyLines[1], "  self.func2Closure2 = func2Closure2")
-        XCTAssertEqual(funcMock.funcBodyLines[2], "  func2ClosureWasCalled = true")
-        XCTAssertEqual(funcMock.funcBodyLines[3], "  return func2ClosureShouldReturn")
+        XCTAssertEqual(funcMocker.funcBodyLines.count, 4)
+        XCTAssertEqual(funcMocker.funcBodyLines[0], "  self.func2Closure = func2Closure")
+        XCTAssertEqual(funcMocker.funcBodyLines[1], "  self.func2Closure2 = func2Closure2")
+        XCTAssertEqual(funcMocker.funcBodyLines[2], "  func2ClosureWasCalled = true")
+        XCTAssertEqual(funcMocker.funcBodyLines[3], "  return func2ClosureShouldReturn")
     }
 
-    func testFuncMock1() {
+    func testFuncMocker1() {
         let funcSignature = FuncSignature(string: "func func3() {")
-        let funcMock = FuncMock(funcSignature: funcSignature, indentationWidth: 1)
-        XCTAssertEqual(funcMock.sensibleVariables.count, 0)
-        XCTAssertEqual(funcMock.wasCalledVariable, VarSignature(declaration: "var", name: "func3WasCalled", type: "Bool?"))
-        XCTAssertNil(funcMock.returnVariable)
+        let funcMocker = FuncMocker(funcSignature: funcSignature, indentationWidth: 1)
+        XCTAssertEqual(funcMocker.sensibleVariables.count, 0)
+        XCTAssertEqual(funcMocker.wasCalledVariable, VarSignature(declaration: "var", name: "func3WasCalled", type: "Bool?"))
+        XCTAssertNil(funcMocker.returnVariable)
     }
 }

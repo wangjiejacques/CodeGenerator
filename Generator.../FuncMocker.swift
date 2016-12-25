@@ -1,5 +1,5 @@
 //
-//  FuncMock.swift
+//  FuncMocker.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 25/12/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FuncMock {
+struct FuncMocker {
     var sensibleVariables: [VarSignature] = []
     var wasCalledVariable: VarSignature
     var returnVariable: VarSignature?
@@ -28,7 +28,7 @@ struct FuncMock {
             returnVariable = VarSignature(declaration: "var", name: funcSignature.readableName + "ShouldReturn", type: funcSignature.returnType)
         }
 
-        var bodyLines = FuncMock.funcBodyWithSensible(vars: sensibleVariables, indentation: indentation)
+        var bodyLines = FuncMocker.funcBodyWithSensible(vars: sensibleVariables, indentation: indentation)
         let wasCalledBodyLine = "\(indentation)\(indentation)\(wasCalledVariable.name) = true"
         bodyLines.append(wasCalledBodyLine)
         if let returnVariable = returnVariable {
