@@ -40,6 +40,9 @@
 		A0A82AE71E11571200F27EA3 /* interface1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0A82AE61E11571200F27EA3 /* interface1.txt */; };
 		A0A82AE91E11593800F27EA3 /* interface1Mock.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0A82AE81E11593800F27EA3 /* interface1Mock.txt */; };
 		A0A82AEB1E1159C200F27EA3 /* NSObject+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */; };
+		A0A82AED1E11636600F27EA3 /* SwiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEC1E11636600F27EA3 /* SwiftType.swift */; };
+		A0A82AEF1E11676B00F27EA3 /* SwiftTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */; };
+		A0A82AF01E1167CC00F27EA3 /* SwiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEC1E11636600F27EA3 /* SwiftType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,8 @@
 		A0A82AE61E11571200F27EA3 /* interface1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1.txt; sourceTree = "<group>"; };
 		A0A82AE81E11593800F27EA3 /* interface1Mock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1Mock.txt; sourceTree = "<group>"; };
 		A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+file.swift"; sourceTree = "<group>"; };
+		A0A82AEC1E11636600F27EA3 /* SwiftType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftType.swift; sourceTree = "<group>"; };
+		A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTypeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +146,7 @@
 				A01E46861E0FF94C00395AED /* FuncSignature.swift */,
 				A01E46891E100FB200395AED /* FuncParam.swift */,
 				A01E46921E102CBB00395AED /* VarSignature.swift */,
+				A0A82AEC1E11636600F27EA3 /* SwiftType.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 				A0A82AE81E11593800F27EA3 /* interface1Mock.txt */,
 				A03920701E0F3A7B005A6E89 /* Info.plist */,
 				A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */,
+				A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */,
 			);
 			path = CodeGeneratorTests;
 			sourceTree = "<group>";
@@ -378,6 +385,7 @@
 				A01E46811E0FE6DA00395AED /* String+regexr.swift in Sources */,
 				A01E468C1E1010BE00395AED /* FuncSignature.swift in Sources */,
 				A01E468B1E1010BB00395AED /* InterfaceDefinition.swift in Sources */,
+				A0A82AF01E1167CC00F27EA3 /* SwiftType.swift in Sources */,
 				A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */,
 				A01E46801E0FE6CB00395AED /* InterfaceSignature.swift in Sources */,
 				A07FE2791E107AA900809837 /* InterfaceMocker.swift in Sources */,
@@ -390,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01E46951E1030E000395AED /* VarSignatureTests.swift in Sources */,
+				A0A82AEF1E11676B00F27EA3 /* SwiftTypeTests.swift in Sources */,
 				A01E467E1E0FE57A00395AED /* InterfaceSignatureTests.swift in Sources */,
 				A01E46911E1017F100395AED /* FuncSignatureTests.swift in Sources */,
 				A07FE2771E106CFE00809837 /* FuncMockTests.swift in Sources */,
@@ -409,6 +418,7 @@
 				A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */,
 				A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */,
 				A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */,
+				A0A82AED1E11636600F27EA3 /* SwiftType.swift in Sources */,
 				A01E46781E0FE21500395AED /* InterfaceSignature.swift in Sources */,
 				A01E46831E0FF78300395AED /* InterfaceMocker.swift in Sources */,
 				A03920871E0F3A8B005A6E89 /* SourceEditorCommand.swift in Sources */,

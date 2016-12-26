@@ -31,4 +31,14 @@ extension String {
     var trimed: String {
         return substring(with: "\\S.*\\S".firstMatch(in: self)!.range)
     }
+
+    func count(of char: Character) -> Int {
+        var count = 0
+        characters.forEach { c in
+            if c == char {
+                count += 1
+            }
+        }
+        return count
+    }
 }
