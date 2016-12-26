@@ -1,0 +1,21 @@
+class BirdMock: Bird {
+    var canFly: Bool!
+
+    var eatFood: String?
+
+    var eatFoodWasCalled: Bool?
+    var isFlyingWasCalled: Bool?
+
+    var isFlyingShouldReturn: Bool!
+
+    func eat(food: String) {
+        eatFood = food
+        eatFoodWasCalled = true
+    }
+
+    func isFlying() -> Bool {
+        isFlyingWasCalled = true
+        return isFlyingShouldReturn
+    }
+
+}

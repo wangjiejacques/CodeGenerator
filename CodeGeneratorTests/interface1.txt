@@ -1,0 +1,7 @@
+protocol Bird {
+    var canFly: Bool! { get }
+
+    func eat(food: String)
+
+    func isFlying() -> Bool
+}

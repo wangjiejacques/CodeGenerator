@@ -9,21 +9,6 @@
 import XCTest
 @testable import CodeGenerator
 
-//protocol Eatable {
-//    var isHot: Bool { get }
-//    func eat()
-//}
-//
-//class EatableMock: Eatable {
-//    var isHot: Bool
-//
-//    var eatWasCalled: Bool?
-//
-//    func eat() {
-//        eatWasCalled = true
-//    }
-//
-//}
 class InterfaceMockerTests: XCTestCase {
 
     var interfaceMocker: InterfaceMocker!
@@ -38,20 +23,15 @@ class InterfaceMockerTests: XCTestCase {
     }
 
     func testInterface() {
-        let source = "protocol Eatable {|    var isHot: Bool { get }| func eat()|}"
-        let interface = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "|"))
-        let interfaceMocker = InterfaceMocker(interfaceSignature: interface, indentationWidth: 1)
-        XCTAssertEqual(interfaceMocker.mockSource.count, 10)
-        XCTAssertEqual(interfaceMocker.mockSource[0], "class EatableMock: Eatable {")
-        XCTAssertEqual(interfaceMocker.mockSource[1], " var isHot: Bool")
-        XCTAssertEqual(interfaceMocker.mockSource[2], "")
-        XCTAssertEqual(interfaceMocker.mockSource[3], " var eatWasCalled: Bool?")
-        XCTAssertEqual(interfaceMocker.mockSource[4], "")
-        XCTAssertEqual(interfaceMocker.mockSource[5], " func eat() {")
-        XCTAssertEqual(interfaceMocker.mockSource[6], "  eatWasCalled = true")
-        XCTAssertEqual(interfaceMocker.mockSource[7], " }")
-        XCTAssertEqual(interfaceMocker.mockSource[8], "")
-        XCTAssertEqual(interfaceMocker.mockSource[9], "}")
+        let interfaceSource = string(from: "interface1", ofType: "txt")
+        let interface = InterfaceSignature(interfaceSource: interfaceSource, lines: interfaceSource.components(separatedBy: "\n"))
+        let interfaceMocker = InterfaceMocker(interfaceSignature: interface, indentationWidth: 4)
+
+        let mockSource = string(from: "interface1Mock", ofType: "txt")
+        var mockSourceLines = mockSource.components(separatedBy: "\n")
+        mockSourceLines.removeLast()
+        XCTAssertEqual(interfaceMocker.mockSource.count, mockSourceLines.count)
+        XCTAssertEqual(interfaceMocker.mockSource, mockSourceLines)
     }
 
 }

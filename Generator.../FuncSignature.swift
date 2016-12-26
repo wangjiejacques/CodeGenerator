@@ -62,11 +62,11 @@ struct FuncSignature {
         let paramsString = rawParams.components(separatedBy: ",").filter { !$0.isEmpty }
         params = paramsString.map { FuncParam(string: $0) }.flatMap { $0 }
 
-        guard let returnTypeResult = "->([^>]*)\\{".firstMatch(in: string) else {
+        guard let returnTypeResult = "->([^>]*)$".firstMatch(in: string) else {
             returnType = "Void"
             return
         }
-        returnType = string.substring(with: returnTypeResult.rangeAt(1)).trimed
+        returnType = string.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
     }
 }
 
