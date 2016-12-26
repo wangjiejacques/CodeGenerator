@@ -202,11 +202,11 @@
 				A01E46941E1030E000395AED /* VarSignatureTests.swift */,
 				A07FE2761E106CFE00809837 /* FuncMockTests.swift */,
 				A07FE2811E108D6900809837 /* InterfaceMockerTests.swift */,
+				A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */,
 				A0A82AE61E11571200F27EA3 /* interface1.txt */,
 				A0A82AE81E11593800F27EA3 /* interface1Mock.txt */,
 				A03920701E0F3A7B005A6E89 /* Info.plist */,
 				A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */,
-				A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */,
 			);
 			path = CodeGeneratorTests;
 			sourceTree = "<group>";

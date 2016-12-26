@@ -39,6 +39,22 @@ extension VarSignature: Equatable {
 
 extension VarSignature {
     var rawString: String {
+        return string(with: type.name)
+    }
+
+    var unwrappedString: String {
+        return string(with: type.unwrappedName)
+    }
+
+    var optionalString: String {
+        return string(with: type.optionalName)
+    }
+
+    var forceUnwrappedString: String {
+        return string(with: type.forceUnwrappedName)
+    }
+
+    private func string(with type: String) -> String {
         return "\(declaration) \(name): \(type)"
     }
 }

@@ -44,6 +44,21 @@ struct SwiftType {
     var isClosure: Bool {
         return name.contains("->")
     }
+
+    var optionalName: String {
+        return name(with: "?")
+    }
+
+    var forceUnwrappedName: String {
+        return name(with: "!")
+    }
+
+    private func name(with wrap: String) -> String {
+        if isClosure {
+            return "(\(unwrappedName))\(wrap)"
+        }
+        return unwrappedName+wrap
+    }
 }
 
 extension SwiftType: Equatable {

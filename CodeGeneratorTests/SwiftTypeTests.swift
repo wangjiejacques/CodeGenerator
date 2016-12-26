@@ -27,6 +27,7 @@ class SwiftTypeTests: XCTestCase {
         XCTAssertEqual(type1.unwrappedName, "Bool")
         XCTAssertEqual(type1.isOptional, false)
         XCTAssertEqual(type1.isClosure, false)
+        XCTAssertEqual(type1.optionalName, "Bool?")
     }
 
     func testType2() {
@@ -35,6 +36,7 @@ class SwiftTypeTests: XCTestCase {
         XCTAssertEqual(type2.unwrappedName, "String")
         XCTAssertEqual(type2.isClosure, false)
         XCTAssertEqual(type2.isOptional, true)
+        XCTAssertEqual(type2.optionalName, "String?")
     }
 
     func testType3() {
@@ -43,5 +45,6 @@ class SwiftTypeTests: XCTestCase {
         XCTAssertEqual(type3.unwrappedName, "(String?) -> String?")
         XCTAssertEqual(type3.isOptional, false)
         XCTAssertEqual(type3.isClosure, true)
+        XCTAssertEqual(type3.optionalName, "((String?) -> String?)?")
     }
 }

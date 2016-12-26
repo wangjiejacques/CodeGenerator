@@ -10,6 +10,7 @@ import Foundation
 
 struct FuncMocker {
     var sensibleVariables: [VarSignature] = []
+    var sensibleParams: [FuncParam] = []
     var wasCalledVariable: VarSignature
     var returnVariable: VarSignature?
     let funcSignature: FuncSignature
@@ -24,13 +25,14 @@ struct FuncMocker {
             let variable = VarSignature(declaration: "var", name: funcSignature.name + param.name.capitalized, type: param.type.name)
             guard !sensibleVariables.contains(variable) else { continue }
             sensibleVariables.append(variable)
+            sensibleParams.append(param)
         }
         wasCalledVariable = VarSignature(declaration: "var", name:  funcSignature.readableName + "WasCalled", type: "Bool?")
         if !funcSignature.isReturnVoid {
             returnVariable = VarSignature(declaration: "var", name: funcSignature.readableName + "ShouldReturn", type: funcSignature.returnType)
         }
 
-        var bodyLines = FuncMocker.funcBodyWithSensible(vars: sensibleVariables, indentation: indentation)
+        var bodyLines = FuncMocker.funcBodyWithSensible(vars: sensibleVariables, params: sensibleParams, indentation: indentation)
         let wasCalledBodyLine = "\(indentation)\(indentation)\(wasCalledVariable.name) = true"
         bodyLines.append(wasCalledBodyLine)
         if let returnVariable = returnVariable {
@@ -46,16 +48,18 @@ struct FuncMocker {
         self.lines = lines
     }
 
-    private static func funcBodyWithSensible(vars: [VarSignature], indentation: String) -> [String] {
+    private static func funcBodyWithSensible(vars: [VarSignature], params: [FuncParam], indentation: String) -> [String] {
+        guard vars.count == params.count else {
+            preconditionFailure("sensible variables should euqal to sensible params")
+        }
         var funcBodyLines: [String] = []
-        vars.forEach { sensibleVariable in
-            let bodyLine = "\(indentation)\(indentation)self.\(sensibleVariable.name) = \(sensibleVariable.name)"
+        for index in 0..<vars.count {
+            let sensibleVariablName = vars[index].name
+            let sensibleParamName = params[index].name
+            let bodyLine = "\(indentation)\(indentation)\(sensibleVariablName) = \(sensibleParamName)"
             funcBodyLines.append(bodyLine)
         }
         return funcBodyLines
     }
 }
 
-extension FuncMocker {
-
-}

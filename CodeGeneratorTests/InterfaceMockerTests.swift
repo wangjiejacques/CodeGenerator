@@ -31,7 +31,9 @@ class InterfaceMockerTests: XCTestCase {
         var mockSourceLines = mockSource.components(separatedBy: "\n")
         mockSourceLines.removeLast()
         XCTAssertEqual(interfaceMocker.mockSource.count, mockSourceLines.count)
-        XCTAssertEqual(interfaceMocker.mockSource, mockSourceLines)
+        for i in 0..<interfaceMocker.mockSource.count {
+            XCTAssertEqual(interfaceMocker.mockSource[i], mockSourceLines[i])
+        }
     }
 
 }
