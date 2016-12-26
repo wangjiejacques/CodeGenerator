@@ -10,13 +10,13 @@ import Foundation
 
 struct InterfaceDefinition {
     let name: String
-    /// can be class, struct, protocol, extension...
+    /// can be class, protocol, extension...
     let type: String
     let lineIndex: Int
 
     init(lines: [String]) {
         for (index, line) in lines.enumerated() {
-            guard let definition = "(protocol|class|extension|struct) ([A-Za-z]*)".firstMatch(in: line) else {
+            guard let definition = "(protocol|class|extension) ([A-Za-z]*)".firstMatch(in: line) else {
                 continue
             }
             name = (line as NSString).substring(with: definition.rangeAt(2))
