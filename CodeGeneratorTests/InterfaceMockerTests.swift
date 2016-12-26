@@ -42,6 +42,16 @@ class InterfaceMockerTests: XCTestCase {
         let interface = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "|"))
         let interfaceMocker = InterfaceMocker(interfaceSignature: interface, indentationWidth: 1)
         XCTAssertEqual(interfaceMocker.mockSource.count, 10)
+        XCTAssertEqual(interfaceMocker.mockSource[0], "class EatableMock: Eatable {")
+        XCTAssertEqual(interfaceMocker.mockSource[1], " var isHot: Bool")
+        XCTAssertEqual(interfaceMocker.mockSource[2], "")
+        XCTAssertEqual(interfaceMocker.mockSource[3], " var eatWasCalled: Bool?")
+        XCTAssertEqual(interfaceMocker.mockSource[4], "")
+        XCTAssertEqual(interfaceMocker.mockSource[5], " func eat() {")
+        XCTAssertEqual(interfaceMocker.mockSource[6], "  eatWasCalled = true")
+        XCTAssertEqual(interfaceMocker.mockSource[7], " }")
+        XCTAssertEqual(interfaceMocker.mockSource[8], "")
+        XCTAssertEqual(interfaceMocker.mockSource[9], "}")
     }
 
 }

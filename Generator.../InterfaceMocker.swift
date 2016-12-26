@@ -18,6 +18,10 @@ struct InterfaceMocker {
     let indentation: String
     private (set) var mockSource: [String] = []
 
+    private var interfaceName: String {
+        return interfaceSignature.definition.name
+    }
+
     init(interfaceSignature: InterfaceSignature, indentationWidth: Int) {
         indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
         self.interfaceSignature = interfaceSignature
@@ -31,7 +35,7 @@ struct InterfaceMocker {
     }
 
     private mutating func initSource() {
-        mockSource.append("\(interfaceSignature.definition.type) \(interfaceSignature.definition.name) {")
+        mockSource.append("class \(interfaceName)Mock: \(interfaceName) {")
         append(variables: variables)
         append(variables: sensibleVariables)
         append(variables: wasCalledVariables)
