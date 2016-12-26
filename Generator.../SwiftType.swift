@@ -46,6 +46,12 @@ struct SwiftType {
     }
 }
 
+extension SwiftType: Equatable {
+    static func ==(l: SwiftType, r: SwiftType) -> Bool {
+        return l.name == r.name
+    }
+}
+
 private extension String {
     var isOptional: Bool {
         guard !isEmpty else { return false }

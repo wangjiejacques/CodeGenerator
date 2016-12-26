@@ -21,7 +21,7 @@ struct FuncMocker {
         indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
         self.funcSignature = funcSignature
         for param in funcSignature.params {
-            let variable = VarSignature(declaration: "var", name: funcSignature.name + param.name.capitalized, type: param.type)
+            let variable = VarSignature(declaration: "var", name: funcSignature.name + param.name.capitalized, type: param.type.name)
             guard !sensibleVariables.contains(variable) else { continue }
             sensibleVariables.append(variable)
         }

@@ -12,14 +12,14 @@ private let wrongParamFormat = "params format incorrect"
 struct FuncParam {
     let label: String
     let name: String
-    let type: String
+    let type: SwiftType
 
     init(string: String) {
         let comps = string.components(separatedBy: ":")
         guard comps.count == 2 else {
             preconditionFailure(wrongParamFormat)
         }
-        type = comps[1].trimed
+        type = SwiftType(string: comps[1].trimed)
 
         let labelNameComps = comps[0].components(separatedBy: " ").map { $0.spaceRemoved }.filter { !$0.isEmpty }
         if labelNameComps.count == 1 {
@@ -43,7 +43,7 @@ struct FuncParam {
     init(label: String, name: String, type: String) {
         self.label = label
         self.name = name
-        self.type = type
+        self.type = SwiftType(string: type)
     }
 }
 
@@ -55,7 +55,7 @@ extension FuncParam: Equatable {
 
 extension FuncParam {
     var rawString: String {
-        let rawString = "\(name): \(type)"
+        let rawString = "\(name): \(type.name)"
         if name == label {
             return rawString
         }

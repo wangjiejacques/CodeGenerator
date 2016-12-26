@@ -12,7 +12,7 @@ struct VarSignature {
     /// `let` or `var`
     let declaration: String
     let name: String
-    let type: String
+    let type: SwiftType
 
     init(string: String) {
         guard let result = "(var|let)\\s*(\\S*)\\s*:\\s*(\\S[^\\{]*[^ \\{])".firstMatch(in: string) else {
@@ -20,13 +20,14 @@ struct VarSignature {
         }
         declaration = string.substring(with: result.rangeAt(1))
         name = string.substring(with: result.rangeAt(2))
-        type = string.substring(with: result.rangeAt(3))
+        let typeString = string.substring(with: result.rangeAt(3))
+        type = SwiftType(string: typeString)
     }
 
     init(declaration: String, name: String, type: String) {
         self.declaration = declaration
         self.name = name
-        self.type = type
+        self.type = SwiftType(string: type)
     }
 }
 
