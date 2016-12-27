@@ -36,10 +36,10 @@ struct InterfaceMocker {
 
     private mutating func initSource() {
         mockSource.append("class \(interfaceName)Mock: \(interfaceName) {")
-        append(variables: variables, varString: { $0.rawString })
-        append(variables: sensibleVariables, varString: { $0.optionalString })
-        append(variables: wasCalledVariables, varString: { $0.optionalString })
-        append(variables: returnVariables, varString: { $0.forceUnwrappedString })
+        append(variables: variables, varType: { $0.rawType })
+        append(variables: sensibleVariables, varType: { $0.optionalType })
+        append(variables: wasCalledVariables, varType: { $0.optionalType })
+        append(variables: returnVariables, varType: { $0.forceUnwrappedType })
         funcsMockers.forEach { funcMocker in
             mockSource.append(contentsOf: funcMocker.lines)
             mockSource.append("")
@@ -47,9 +47,9 @@ struct InterfaceMocker {
         mockSource.append("}")
     }
 
-    private mutating func append(variables: [VarSignature], varString: (VarSignature) -> String) {
+    private mutating func append(variables: [VarSignature], varType: (VarSignature) -> String) {
         guard !variables.isEmpty else { return }
-        variables.forEach { mockSource.append("\(indentation)\(varString($0))") }
+        variables.forEach { mockSource.append("\(indentation)\(varType($0))") }
         mockSource.append("")
     }
 }

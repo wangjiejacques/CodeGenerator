@@ -46,19 +46,19 @@ extension VarSignature: Equatable {
 }
 
 extension VarSignature {
-    var rawString: String {
+    var rawType: String {
         return string(with: type.name)
     }
 
-    var unwrappedString: String {
+    var unwrappedType: String {
         return string(with: type.unwrappedName)
     }
 
-    var optionalString: String {
+    var optionalType: String {
         return string(with: type.optionalName)
     }
 
-    var forceUnwrappedString: String {
+    var forceUnwrappedType: String {
         return string(with: type.forceUnwrappedName)
     }
 
