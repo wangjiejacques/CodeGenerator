@@ -33,8 +33,13 @@ class InterfaceSignatureTests: XCTestCase {
     }
 
     func testVarSignatures() {
-        XCTAssertEqual(interfaceSignature.varSignatures.count, 2)
-        XCTAssertEqual(interfaceSignature.varSignatures, ["var var1: String", "let var4: String?"].map { VarSignature(string: $0) })
+        let vars = ["var var1: String", " private var var3: String", "let var4: String?"].map { VarSignature(string: $0) }
+        XCTAssertEqual(interfaceSignature.varSignatures.count, vars.count)
+        for i in 0..<vars.count {
+            XCTAssertEqual(interfaceSignature.varSignatures[i], vars[i])
+        }
+        XCTAssertEqual(interfaceSignature.varSignatures[1].accessLevel, .private)
+        XCTAssertEqual(interfaceSignature.varSignatures[0].accessLevel, .internal)
     }
 
 }

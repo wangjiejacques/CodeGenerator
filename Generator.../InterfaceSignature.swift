@@ -41,7 +41,7 @@ struct InterfaceSignature {
             openBraceCount += line.characters.filter { $0 == "{" }.count
             openBraceCount -= line.characters.filter { $0 == "}" }.count
             guard openBraceCount == 1 else { continue }
-            guard let _ = "^(?!.*private)(?!.*static).*\\s(let|var) \\S".firstMatch(in: line) else { continue }
+            guard let _ = "^(?!.*static).*\\s(let|var) \\S".firstMatch(in: line) else { continue }
             varSignatures.append(line)
         }
         self.varSignatures = varSignatures.map { VarSignature(string: $0) }

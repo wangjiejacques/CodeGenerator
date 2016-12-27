@@ -9,10 +9,12 @@
 import Foundation
 
 struct VarSignature {
+
     /// `let` or `var`
     let declaration: String
     let name: String
     let type: SwiftType
+    var accessLevel: AccessLevel = .internal
 
     init(string: String) {
         guard let result = "(var|let)\\s*(\\S*)\\s*:\\s*(\\S[^\\{]*[^ \\{])".firstMatch(in: string) else {
@@ -22,18 +24,20 @@ struct VarSignature {
         name = string.substring(with: result.rangeAt(2))
         let typeString = string.substring(with: result.rangeAt(3))
         type = SwiftType(string: typeString)
+        accessLevel =  AccessLevel(string: string)
     }
 
-    init(declaration: String, name: String, type: String) {
+    init(declaration: String, name: String, type: String, accessLevel: AccessLevel = .internal) {
         self.declaration = declaration
         self.name = name
         self.type = SwiftType(string: type)
+        self.accessLevel = accessLevel
     }
 }
 
 extension VarSignature: Equatable {
     static func ==(l: VarSignature, r: VarSignature) -> Bool {
-        return l.declaration == r.declaration && l.name == r.name && l.type == r.type
+        return l.declaration == r.declaration && l.name == r.name && l.type == r.type && l.accessLevel == r.accessLevel
     }
 }
 
