@@ -30,9 +30,9 @@
 			<array>
 				<dict>
 					<key>XCSourceEditorCommandClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SourceEditorCommand</string>
+					<string>$(PRODUCT_MODULE_NAME).GenerateMockCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
-					<string>$(PRODUCT_BUNDLE_IDENTIFIER).SourceEditorCommand</string>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).GenerateMockCommand</string>
 					<key>XCSourceEditorCommandName</key>
 					<string>Mock</string>
 				</dict>

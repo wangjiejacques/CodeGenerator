@@ -30,7 +30,7 @@
 		A039206F1E0F3A7B005A6E89 /* CodeGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039206E1E0F3A7B005A6E89 /* CodeGeneratorTests.swift */; };
 		A03920801E0F3A8B005A6E89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A039207F1E0F3A8B005A6E89 /* Cocoa.framework */; };
 		A03920851E0F3A8B005A6E89 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */; };
-		A03920871E0F3A8B005A6E89 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920861E0F3A8B005A6E89 /* SourceEditorCommand.swift */; };
+		A03920871E0F3A8B005A6E89 /* GenerateMockCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */; };
 		A039208B1E0F3A8B005A6E89 /* Generator....appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A039207D1E0F3A8B005A6E89 /* Generator....appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920901E0F3AEF005A6E89 /* String+regexr.swift */; };
 		A07FE2771E106CFE00809837 /* FuncMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FE2761E106CFE00809837 /* FuncMockTests.swift */; };
@@ -43,6 +43,7 @@
 		A0A82AED1E11636600F27EA3 /* SwiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEC1E11636600F27EA3 /* SwiftType.swift */; };
 		A0A82AEF1E11676B00F27EA3 /* SwiftTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */; };
 		A0A82AF01E1167CC00F27EA3 /* SwiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEC1E11636600F27EA3 /* SwiftType.swift */; };
+		A0A82B181E1276F000F27EA3 /* GenerateEqualsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82B171E1276F000F27EA3 /* GenerateEqualsCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +101,7 @@
 		A039207F1E0F3A8B005A6E89 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A03920831E0F3A8B005A6E89 /* Generator___.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Generator___.entitlements"; sourceTree = "<group>"; };
 		A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
-		A03920861E0F3A8B005A6E89 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
+		A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateMockCommand.swift; sourceTree = "<group>"; };
 		A03920881E0F3A8B005A6E89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A03920901E0F3AEF005A6E89 /* String+regexr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+regexr.swift"; sourceTree = "<group>"; };
 		A07FE2761E106CFE00809837 /* FuncMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncMockTests.swift; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+file.swift"; sourceTree = "<group>"; };
 		A0A82AEC1E11636600F27EA3 /* SwiftType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftType.swift; sourceTree = "<group>"; };
 		A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTypeTests.swift; sourceTree = "<group>"; };
+		A0A82B171E1276F000F27EA3 /* GenerateEqualsCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateEqualsCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,13 +153,13 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
-		A01E469E1E105EB400395AED /* Mocking */ = {
+		A01E469E1E105EB400395AED /* Mocker */ = {
 			isa = PBXGroup;
 			children = (
 				A01E469F1E105EE900395AED /* FuncMocker.swift */,
 				A01E46821E0FF78300395AED /* InterfaceMocker.swift */,
 			);
-			name = Mocking;
+			name = Mocker;
 			sourceTree = "<group>";
 		};
 		A03920501E0F3A7B005A6E89 = {
@@ -222,10 +224,11 @@
 		A03920811E0F3A8B005A6E89 /* Generator... */ = {
 			isa = PBXGroup;
 			children = (
-				A01E469E1E105EB400395AED /* Mocking */,
+				A01E469E1E105EB400395AED /* Mocker */,
 				A01E46881E0FF95900395AED /* Source */,
 				A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */,
-				A03920861E0F3A8B005A6E89 /* SourceEditorCommand.swift */,
+				A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */,
+				A0A82B171E1276F000F27EA3 /* GenerateEqualsCommand.swift */,
 				A03920901E0F3AEF005A6E89 /* String+regexr.swift */,
 				A03920881E0F3A8B005A6E89 /* Info.plist */,
 				A03920821E0F3A8B005A6E89 /* Supporting Files */,
@@ -415,13 +418,14 @@
 				A01E46931E102CBB00395AED /* VarSignature.swift in Sources */,
 				A03920851E0F3A8B005A6E89 /* SourceEditorExtension.swift in Sources */,
 				A01E46851E0FF94100395AED /* InterfaceDefinition.swift in Sources */,
+				A0A82B181E1276F000F27EA3 /* GenerateEqualsCommand.swift in Sources */,
 				A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */,
 				A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */,
 				A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */,
 				A0A82AED1E11636600F27EA3 /* SwiftType.swift in Sources */,
 				A01E46781E0FE21500395AED /* InterfaceSignature.swift in Sources */,
 				A01E46831E0FF78300395AED /* InterfaceMocker.swift in Sources */,
-				A03920871E0F3A8B005A6E89 /* SourceEditorCommand.swift in Sources */,
+				A03920871E0F3A8B005A6E89 /* GenerateMockCommand.swift in Sources */,
 				A01E468A1E100FB200395AED /* FuncParam.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  SourceEditorCommand.swift
+//  GenerateMockCommand.swift
 //  Generator...
 //
 //  Created by WANG Jie on 25/12/2016.
@@ -8,9 +8,8 @@
 
 import Foundation
 import XcodeKit
-import AppKit
 
-class SourceEditorCommand: NSObject, XCSourceEditorCommand {
+class GenerateMockCommand: NSObject, XCSourceEditorCommand {
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         let interfaceSignature = InterfaceSignature(interfaceSource: invocation.buffer.completeBuffer, lines: invocation.buffer.lines.map { $0 as! String })
