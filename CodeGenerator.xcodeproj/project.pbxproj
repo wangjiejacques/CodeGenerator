@@ -44,6 +44,9 @@
 		A0A82AEF1E11676B00F27EA3 /* SwiftTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */; };
 		A0A82AF01E1167CC00F27EA3 /* SwiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEC1E11636600F27EA3 /* SwiftType.swift */; };
 		A0A82B181E1276F000F27EA3 /* GenerateEqualsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82B171E1276F000F27EA3 /* GenerateEqualsCommand.swift */; };
+		A0A82B1A1E127BEE00F27EA3 /* AccessLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82B191E127BEE00F27EA3 /* AccessLevel.swift */; };
+		A0A82B1C1E127E9F00F27EA3 /* AccessLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82B1B1E127E9F00F27EA3 /* AccessLevelTests.swift */; };
+		A0A82B1D1E127F1000F27EA3 /* AccessLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82B191E127BEE00F27EA3 /* AccessLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,8 @@
 		A0A82AEC1E11636600F27EA3 /* SwiftType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftType.swift; sourceTree = "<group>"; };
 		A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTypeTests.swift; sourceTree = "<group>"; };
 		A0A82B171E1276F000F27EA3 /* GenerateEqualsCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateEqualsCommand.swift; sourceTree = "<group>"; };
+		A0A82B191E127BEE00F27EA3 /* AccessLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessLevel.swift; sourceTree = "<group>"; };
+		A0A82B1B1E127E9F00F27EA3 /* AccessLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessLevelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +154,7 @@
 				A01E46891E100FB200395AED /* FuncParam.swift */,
 				A01E46921E102CBB00395AED /* VarSignature.swift */,
 				A0A82AEC1E11636600F27EA3 /* SwiftType.swift */,
+				A0A82B191E127BEE00F27EA3 /* AccessLevel.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 				A01E46941E1030E000395AED /* VarSignatureTests.swift */,
 				A07FE2761E106CFE00809837 /* FuncMockTests.swift */,
 				A07FE2811E108D6900809837 /* InterfaceMockerTests.swift */,
+				A0A82B1B1E127E9F00F27EA3 /* AccessLevelTests.swift */,
 				A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */,
 				A0A82AE61E11571200F27EA3 /* interface1.txt */,
 				A0A82AE81E11593800F27EA3 /* interface1Mock.txt */,
@@ -392,6 +399,7 @@
 				A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */,
 				A01E46801E0FE6CB00395AED /* InterfaceSignature.swift in Sources */,
 				A07FE2791E107AA900809837 /* InterfaceMocker.swift in Sources */,
+				A0A82B1D1E127F1000F27EA3 /* AccessLevel.swift in Sources */,
 				A01E468D1E1010C100395AED /* FuncParam.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +416,7 @@
 				A0A82AEB1E1159C200F27EA3 /* NSObject+file.swift in Sources */,
 				A07FE2821E108D6900809837 /* InterfaceMockerTests.swift in Sources */,
 				A039206F1E0F3A7B005A6E89 /* CodeGeneratorTests.swift in Sources */,
+				A0A82B1C1E127E9F00F27EA3 /* AccessLevelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +430,7 @@
 				A0A82B181E1276F000F27EA3 /* GenerateEqualsCommand.swift in Sources */,
 				A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */,
 				A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */,
+				A0A82B1A1E127BEE00F27EA3 /* AccessLevel.swift in Sources */,
 				A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */,
 				A0A82AED1E11636600F27EA3 /* SwiftType.swift in Sources */,
 				A01E46781E0FE21500395AED /* InterfaceSignature.swift in Sources */,
