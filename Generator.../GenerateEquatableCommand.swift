@@ -1,5 +1,5 @@
 //
-//  GenerateEqualsCommand.swift
+//  GenerateEquatableCommand.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 27/12/2016.

@@ -1,5 +1,5 @@
 //
-//  EqualGeneratorTests.swift
+//  EquatableGeneratorTests.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 27/12/2016.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import CodeGenerator
 
-class EqualGeneratorTests: XCTestCase {
+class EquatableGeneratorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -21,18 +21,18 @@ class EqualGeneratorTests: XCTestCase {
         super.tearDown()
     }
 
-    func testEqualGenerator() {
+    func testEquatableGenerator() {
         let source = string(from: "EquatableClazz", ofType: "txt")
         let interface = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
-        let equalGenerator = EqualGenerator(interfaceSignature: interface, indentation: "    ")
+        let equatableGenerator = EquatableGenerator(interfaceSignature: interface, indentation: "    ")
 
         var expectedEqualsSource = string(from: "GeneratedEquals", ofType: "txt").components(separatedBy: "\n")
         expectedEqualsSource.removeLast()
 
-        XCTAssertEqual(equalGenerator.lines.count, expectedEqualsSource.count)
-        let count = min(equalGenerator.lines.count, expectedEqualsSource.count)
+        XCTAssertEqual(equatableGenerator.lines.count, expectedEqualsSource.count)
+        let count = min(equatableGenerator.lines.count, expectedEqualsSource.count)
         for i in 0..<count {
-            XCTAssertEqual(equalGenerator.lines[i], expectedEqualsSource[i])
+            XCTAssertEqual(equatableGenerator.lines[i], expectedEqualsSource[i])
         }
     }
 

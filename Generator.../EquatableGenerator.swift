@@ -1,5 +1,5 @@
 //
-//  EqualGenerator.swift
+//  EquatableGenerator.swift
 //  CodeGenerator
 //
 //  Created by WANG Jie on 27/12/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EqualGenerator {
+struct EquatableGenerator {
     let varSignatures: [VarSignature]
     let indentation: String
     let interfaceDefinition: InterfaceDefinition
