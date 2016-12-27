@@ -16,7 +16,7 @@ struct InterfaceDefinition {
 
     init(lines: [String]) {
         for (index, line) in lines.enumerated() {
-            guard let definition = "(protocol|class|extension) ([A-Za-z]*)".firstMatch(in: line) else {
+            guard let definition = "(protocol|class|extension|struct) ([A-Za-z]*)".firstMatch(in: line) else {
                 continue
             }
             name = line.substring(with: definition.rangeAt(2))

@@ -1,0 +1,6 @@
+
+extension EquatableClazz: Equatable {
+    static func ==(lhs: EquatableClazz, rhs: EquatableClazz) -> Bool {
+        return lhs.var0 == rhs.var0 && lhs.var1 == rhs.var1 && lhs.var2 == rhs.var2
+    }
+}
