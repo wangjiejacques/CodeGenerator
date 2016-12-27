@@ -11,10 +11,46 @@ import XcodeKit
 
 class GenerateEquatableCommand: NSObject, XCSourceEditorCommand {
 
-    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
-        let interfaceSignature = InterfaceSignature(interfaceSource: invocation.buffer.completeBuffer, lines: invocation.buffer.lines.map { $0 as! String })
-        let equatableGenerator = EquatableGenerator(interfaceSignature: interfaceSignature, indentation: Array(repeating: " ", count: invocation.buffer.indentationWidth).joined())
-        invocation.buffer.lines.addObjects(from: equatableGenerator.lines)
+    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) {
+        var selections = invocation.buffer.selections.map { $0 as! XCSourceTextRange }
+        selections = selections.filter { $0.start != $0.end }
+        if selections.isEmpty {
+            generateForAllVariables(with: invocation)
+        } else {
+            generateForSelectedVariables(with: invocation, selections: selections)
+        }
         completionHandler(nil)
     }
+
+    private func generateForAllVariables(with invocation: XCSourceEditorCommandInvocation) {
+        let equatableGenerator = EquatableGenerator(interfaceSignature: interfaceSignature(of: invocation), indentation: indentation(of: invocation))
+        invocation.buffer.lines.addObjects(from: equatableGenerator.lines)
+    }
+
+    private func generateForSelectedVariables(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) {
+        let selectedColumns = selections.map { $0.start.line...$0.end.line }.flatMap { $0 }
+        var selectedLines: [String] = []
+        invocation.buffer.lines.enumerated().forEach { index, line in
+            if selectedColumns.contains(index) {
+                selectedLines.append(line as! String)
+            }
+        }
+        let selectedVars = selectedLines.flatMap { VarSignature(string: $0) }
+        let equatableGenerator = EquatableGenerator(interfaceDefinition: interfaceSignature(of: invocation).definition, varSignatures: selectedVars, indentation: indentation(of: invocation))
+        invocation.buffer.lines.addObjects(from: equatableGenerator.lines)
+    }
+}
+
+extension XCSourceTextPosition: Equatable {
+    public static func==(l: XCSourceTextPosition, r: XCSourceTextPosition) -> Bool {
+        return l.column == r.column && r.line == l.line
+    }
+}
+
+private func indentation(of invocation: XCSourceEditorCommandInvocation) -> String {
+    return Array(repeating: " ", count: invocation.buffer.indentationWidth).joined()
+}
+
+private func interfaceSignature(of invocation: XCSourceEditorCommandInvocation) -> InterfaceSignature {
+    return InterfaceSignature(interfaceSource: invocation.buffer.completeBuffer, lines: invocation.buffer.lines.map { $0 as! String })
 }
