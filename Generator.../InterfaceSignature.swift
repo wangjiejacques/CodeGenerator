@@ -36,14 +36,14 @@ struct InterfaceSignature {
 
     mutating func initVarSignatures() {
         var openBraceCount = 0
-        var varSignatures: [String] = []
+        var varSignatures: [VarSignature] = []
         for line in lines {
             openBraceCount += line.characters.filter { $0 == "{" }.count
             openBraceCount -= line.characters.filter { $0 == "}" }.count
             guard openBraceCount == 1 else { continue }
-            guard let _ = "^(?!.*static).*\\s(let|var) \\S".firstMatch(in: line) else { continue }
-            varSignatures.append(line)
+            guard let varSignature = VarSignature(string: line) else { continue }
+            varSignatures.append(varSignature)
         }
-        self.varSignatures = varSignatures.map { VarSignature(string: $0) }
+        self.varSignatures = varSignatures
     }
 }

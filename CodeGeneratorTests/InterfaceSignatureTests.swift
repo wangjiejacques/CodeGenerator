@@ -33,7 +33,7 @@ class InterfaceSignatureTests: XCTestCase {
     }
 
     func testVarSignatures() {
-        let vars = ["var var1: String", " private var var3: String", "let var4: String?"].map { VarSignature(string: $0) }
+        let vars = [" var var1: String", " private var var3: String", " let var4: String?"].map { VarSignature(string: $0)! }
         XCTAssertEqual(interfaceSignature.varSignatures.count, vars.count)
         for i in 0..<vars.count {
             XCTAssertEqual(interfaceSignature.varSignatures[i], vars[i])

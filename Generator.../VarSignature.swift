@@ -16,9 +16,12 @@ struct VarSignature {
     let type: SwiftType
     var accessLevel: AccessLevel = .internal
 
-    init(string: String) {
+    init?(string: String) {
+        guard let _ = "^(?!.*static).*\\s(let|var) \\S".firstMatch(in: string) else {
+            return nil
+        }
         guard let result = "(var|let)\\s*(\\S*)\\s*:\\s*(\\S[^\\{]*[^ \\{])".firstMatch(in: string) else {
-            preconditionFailure("incorrect var format \(string)")
+            return nil
         }
         declaration = string.substring(with: result.rangeAt(1))
         name = string.substring(with: result.rangeAt(2))
