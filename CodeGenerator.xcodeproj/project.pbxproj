@@ -106,8 +106,8 @@
 		A03920901E0F3AEF005A6E89 /* String+regexr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+regexr.swift"; sourceTree = "<group>"; };
 		A07FE2761E106CFE00809837 /* FuncMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncMockTests.swift; sourceTree = "<group>"; };
 		A07FE2811E108D6900809837 /* InterfaceMockerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceMockerTests.swift; sourceTree = "<group>"; };
-		A0A82AE61E11571200F27EA3 /* interface1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1.txt; sourceTree = "<group>"; };
-		A0A82AE81E11593800F27EA3 /* interface1Mock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1Mock.txt; sourceTree = "<group>"; };
+		A0A82AE61E11571200F27EA3 /* interface1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A0A82AE81E11593800F27EA3 /* interface1Mock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1Mock.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+file.swift"; sourceTree = "<group>"; };
 		A0A82AEC1E11636600F27EA3 /* SwiftType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftType.swift; sourceTree = "<group>"; };
 		A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTypeTests.swift; sourceTree = "<group>"; };
