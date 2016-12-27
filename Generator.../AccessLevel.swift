@@ -25,4 +25,8 @@ enum AccessLevel: String {
         }
         self.init(rawValue: "internal")!
     }
+
+    var isPrivate: Bool {
+        return self == .private || self == .fileprivate
+    }
 }

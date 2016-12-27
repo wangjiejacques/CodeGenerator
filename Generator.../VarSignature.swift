@@ -33,6 +33,10 @@ struct VarSignature {
         self.type = SwiftType(string: type)
         self.accessLevel = accessLevel
     }
+
+    var isPrivate: Bool {
+        return accessLevel.isPrivate
+    }
 }
 
 extension VarSignature: Equatable {

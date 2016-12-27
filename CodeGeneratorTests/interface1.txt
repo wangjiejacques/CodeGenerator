@@ -1,4 +1,5 @@
 protocol Bird {
+    private var height: Double { get set }
     var canFly: Bool! { get }
 
     func eat(food: String)

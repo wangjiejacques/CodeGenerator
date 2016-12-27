@@ -25,7 +25,7 @@ struct InterfaceMocker {
     init(interfaceSignature: InterfaceSignature, indentationWidth: Int) {
         indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
         self.interfaceSignature = interfaceSignature
-        variables = interfaceSignature.varSignatures
+        variables = interfaceSignature.varSignatures.filter { !$0.isPrivate }
         funcsMockers = interfaceSignature.funcSignatures.map { FuncMocker(funcSignature: $0, indentationWidth: indentationWidth) }
         sensibleVariables = funcsMockers.flatMap { $0.sensibleVariables }
         wasCalledVariables = funcsMockers.map { $0.wasCalledVariable }
