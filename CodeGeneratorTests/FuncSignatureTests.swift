@@ -45,7 +45,7 @@ class FuncSignatureTests: XCTestCase {
         XCTAssertEqual(func3.name, "func3")
         XCTAssertEqual(func3.returnType, "Void")
         XCTAssertEqual(func3.params.count, 1)
-        XCTAssertEqual(func3.params[0], FuncParam(label: "", name: "param", type: "String"))
+        XCTAssertEqual(func3.params[0], FuncParam(label: "_", name: "param", type: "String"))
     }
 
     func testFunc4() {

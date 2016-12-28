@@ -14,6 +14,13 @@ struct FuncParam {
     let name: String
     let type: SwiftType
 
+    var readableLabel: String {
+        if label == "_" {
+            return ""
+        }
+        return label
+    }
+
     init(string: String) {
         let comps = string.components(separatedBy: ":")
         guard comps.count == 2 else {
@@ -29,11 +36,7 @@ struct FuncParam {
         }
         if labelNameComps.count == 2 {
             let label = labelNameComps[0]
-            if label == "_" {
-                self.label = ""
-            } else {
-                self.label = label
-            }
+            self.label = label
             name = labelNameComps[1]
             return
         }

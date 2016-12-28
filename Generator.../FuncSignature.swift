@@ -19,7 +19,7 @@ struct FuncSignature {
         if params.isEmpty {
             return name
         }
-        return name + params[0].label.capitalized
+        return name + params[0].readableLabel.capitalized
     }
 
     var isReturnVoid: Bool {
