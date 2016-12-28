@@ -1,5 +1,5 @@
-class BirdMock: Bird {
-    var canFly: Bool!
+class PokemonMock: Pokemon {
+    var canEvolve: Bool!
 
     var eatFood: String?
     var drinkWater: String?

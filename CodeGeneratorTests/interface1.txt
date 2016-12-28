@@ -1,6 +1,6 @@
-protocol Bird {
+protocol Pokemon {
     private var height: Double { get set }
-    var canFly: Bool! { get }
+    var canEvolve: Bool! { get }
 
     func eat(food: String)
 
