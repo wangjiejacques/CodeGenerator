@@ -4,5 +4,7 @@ protocol Bird {
 
     func eat(food: String)
 
+    func drink(_ water: String)
+
     func isFlying() -> Bool
 }

@@ -2,8 +2,10 @@ class BirdMock: Bird {
     var canFly: Bool!
 
     var eatFood: String?
+    var drinkWater: String?
 
     var eatFoodWasCalled: Bool?
+    var drinkWaterWasCalled: Bool?
     var isFlyingWasCalled: Bool?
 
     var isFlyingShouldReturn: Bool!
@@ -11,6 +13,11 @@ class BirdMock: Bird {
     func eat(food: String) {
         eatFood = food
         eatFoodWasCalled = true
+    }
+
+    func drink(_ water: String) {
+        drinkWater = water
+        drinkWaterWasCalled = true
     }
 
     func isFlying() -> Bool {
