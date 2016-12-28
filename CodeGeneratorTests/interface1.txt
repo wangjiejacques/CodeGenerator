@@ -7,4 +7,6 @@ protocol Pokemon {
     func drink(_ water: String)
 
     func isFlying() -> Bool
+
+    func evolve(successHandler: @escaping (String) -> Void, failureHandler: (String?) -> String?)
 }
