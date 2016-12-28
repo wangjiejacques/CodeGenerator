@@ -26,14 +26,14 @@ struct VarSignature {
         declaration = string.substring(with: result.rangeAt(1))
         name = string.substring(with: result.rangeAt(2))
         let typeString = string.substring(with: result.rangeAt(3))
-        type = SwiftType(string: typeString)
+        type = TypeParser.parse(string: typeString)
         accessLevel =  AccessLevel(string: string)
     }
 
     init(declaration: String, name: String, type: String, accessLevel: AccessLevel = .internal) {
         self.declaration = declaration
         self.name = name
-        self.type = SwiftType(string: type)
+        self.type = TypeParser.parse(string: type)
         self.accessLevel = accessLevel
     }
 
@@ -47,6 +47,8 @@ extension VarSignature: Equatable {
         return l.declaration == r.declaration && l.name == r.name && l.type == r.type && l.accessLevel == r.accessLevel
     }
 }
+
+
 
 extension VarSignature {
     var rawType: String {

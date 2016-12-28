@@ -2,47 +2,38 @@
 //  SwiftType.swift
 //  CodeGenerator
 //
-//  Created by WANG Jie on 26/12/2016.
+//  Created by WANG Jie on 28/12/2016.
 //  Copyright © 2016 wangjie. All rights reserved.
 //
 
 import Foundation
 
-struct SwiftType {
+class SwiftType {
 
-    /// can be String, Int, Int?, Bool...
-    let name: String
-    /// can be String, Int, Bool...
-    let unwrappedName: String
+    let rawString: String
 
-    init(string rawString: String) {
-        let string = rawString.trimed
-        name = string
-        if string.isClosure {
-            if string.isClosureOptional {
-                let result = "^\\((.*\\))[?!]$".firstMatch(in: string)!
-                unwrappedName = string.substring(with: result.rangeAt(1))
-            } else {
-                unwrappedName = string
-            }
-            return
+    init(rawString: String) {
+        self.rawString = rawString
+    }
+
+    var name: String {
+        return rawString
+    }
+
+    var unwrappedName: String {
+        if isOptional {
+            return name.substring(to: name.index(before: name.endIndex))
         }
-        if string.isOptional {
-            unwrappedName = string.substring(to: string.index(before: string.endIndex))
-            return
-        }
-        unwrappedName = string
+        return name
+    }
+
+    func name(with wrap: String) -> String {
+        return unwrappedName+wrap
     }
 
     var isOptional: Bool {
-        if name.isClosure {
-            return name.isClosureOptional
-        }
-        return name.isOptional
-    }
-
-    var isClosure: Bool {
-        return name.contains("->")
+        guard !name.isEmpty else { return false }
+        return  ("?!").characters.contains(name.characters.last!)
     }
 
     var optionalName: String {
@@ -52,38 +43,11 @@ struct SwiftType {
     var forceUnwrappedName: String {
         return name(with: "!")
     }
-
-    private func name(with wrap: String) -> String {
-        if isClosure {
-            return "(\(unwrappedName))\(wrap)"
-        }
-        return unwrappedName+wrap
-    }
 }
+
 
 extension SwiftType: Equatable {
-    static func ==(l: SwiftType, r: SwiftType) -> Bool {
-        return l.name == r.name
-    }
-}
-
-private extension String {
-    var isOptional: Bool {
-        guard !isEmpty else { return false }
-        return  ("?!").characters.contains(characters.last!)
-    }
-
-    var isClosure: Bool {
-        return contains("->")
-    }
-
-    var isClosureOptional: Bool {
-        guard characters.count > 7 else { return false }
-        let comps = components(separatedBy: "->")
-        guard comps.count == 2 else { return false }
-        let leftParenthesesCount = comps[1].count(of: "(")
-        let rightParentesescount = comps[1].count(of: ")")
-        let lastTwo = substring(from: index(endIndex, offsetBy: -2))
-        return [")?", ")!"].contains(lastTwo) && leftParenthesesCount != rightParentesescount
+    static func ==(lhs: SwiftType, rhs: SwiftType) -> Bool {
+        return lhs.rawString == rhs.rawString
     }
 }

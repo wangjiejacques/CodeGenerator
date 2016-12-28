@@ -26,7 +26,7 @@ struct FuncParam {
         guard comps.count == 2 else {
             preconditionFailure(wrongParamFormat)
         }
-        type = SwiftType(string: comps[1].trimed)
+        type = TypeParser.parse(string: comps[1].trimed)
 
         let labelNameComps = comps[0].components(separatedBy: " ").map { $0.spaceRemoved }.filter { !$0.isEmpty }
         if labelNameComps.count == 1 {
@@ -46,7 +46,7 @@ struct FuncParam {
     init(label: String, name: String, type: String) {
         self.label = label
         self.name = name
-        self.type = SwiftType(string: type)
+        self.type = TypeParser.parse(string: type)
     }
 }
 
