@@ -1,0 +1,6 @@
+  testFuncMock = funcMock
+  if testShouldCallSuccessHandler {
+   testSuccessHandlerDidReturn = successHandler(testSuccessHandlerParam0, testSuccessHandlerParam1)
+  }
+  testFuncMockWasCalled = true
+  return testFuncMockShouldReturn

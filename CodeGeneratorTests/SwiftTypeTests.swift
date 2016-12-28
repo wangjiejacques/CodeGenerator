@@ -40,11 +40,36 @@ class SwiftTypeTests: XCTestCase {
     }
 
     func testType3() {
-        let type3 = TypeParser.parse(string: "(String?) -> String?")
+        let type3 = TypeParser.parse(string: "@escaping @autoclosure (String?) -> String?")
         XCTAssertEqual(type3.name, "(String?) -> String?")
+        XCTAssertEqual(type3.rawString, "@escaping @autoclosure (String?) -> String?")
         XCTAssertEqual(type3.unwrappedName, "(String?) -> String?")
         XCTAssertEqual(type3.isOptional, false)
         XCTAssertEqual(type3 is ClosureType, true)
         XCTAssertEqual(type3.optionalName, "((String?) -> String?)?")
+    }
+
+    func testType4() {
+        let type3 = TypeParser.parse(string: "@escaping @autoclosure ((String?) -> String?)?")
+        XCTAssertEqual(type3.name, "((String?) -> String?)?")
+        XCTAssertEqual(type3.rawString, "@escaping @autoclosure ((String?) -> String?)?")
+        XCTAssertEqual(type3.unwrappedName, "(String?) -> String?")
+        XCTAssertEqual(type3.isOptional, true)
+        XCTAssertEqual(type3 is ClosureType, true)
+        XCTAssertEqual(type3.optionalName, "((String?) -> String?)?")
+    }
+
+    func testClosureType() {
+        let closureType = ClosureType(rawString: "@escaping @autoclosure ((String?, Int) -> String?)?")
+        XCTAssertEqual(closureType.inTypes[0], TypeParser.parse(string: "String?"))
+        XCTAssertEqual(closureType.inTypes[1], TypeParser.parse(string: "Int"))
+        XCTAssertEqual(closureType.outType, TypeParser.parse(string: "String?"))
+    }
+
+    func testClosureType1() {
+        let closureType = ClosureType(rawString: "@escaping @autoclosure (String?, Int) -> String?")
+        XCTAssertEqual(closureType.inTypes[0], TypeParser.parse(string: "String?"))
+        XCTAssertEqual(closureType.inTypes[1], TypeParser.parse(string: "Int"))
+        XCTAssertEqual(closureType.outType, TypeParser.parse(string: "String?"))
     }
 }

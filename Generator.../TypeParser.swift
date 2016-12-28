@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TypeParser {
+class TypeParser {
 
     static func parse(string: String) -> SwiftType {
         if string.isClosure {

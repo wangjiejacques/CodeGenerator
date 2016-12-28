@@ -30,6 +30,13 @@ struct VarSignature {
         accessLevel =  AccessLevel(string: string)
     }
 
+    init(declaration: String, name: String, type: SwiftType, accessLevel: AccessLevel = .internal) {
+        self.declaration = declaration
+        self.name = name
+        self.type = type
+        self.accessLevel = accessLevel
+    }
+
     init(declaration: String, name: String, type: String, accessLevel: AccessLevel = .internal) {
         self.declaration = declaration
         self.name = name

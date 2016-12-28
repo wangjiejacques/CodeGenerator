@@ -9,44 +9,47 @@
 import Foundation
 
 struct FuncMocker {
-    var sensibleVariables: [VarSignature] = []
-    var sensibleParams: [FuncParam] = []
+    var paramMockers: [ParamMocker] = []
     var wasCalledVariable: VarSignature
     var returnVariable: VarSignature?
     let funcSignature: FuncSignature
-    let funcBodyLines: [String]
     let indentation: String
-    let lines: [String]
 
     init(funcSignature: FuncSignature, indentationWidth: Int) {
-        indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
+        let indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
         self.funcSignature = funcSignature
-        for param in funcSignature.params {
-            let variable = VarSignature(declaration: "var", name: funcSignature.name + param.name.capitalized, type: param.type.name)
-            guard !sensibleVariables.contains(variable) else { continue }
-            sensibleVariables.append(variable)
-            sensibleParams.append(param)
-        }
         wasCalledVariable = VarSignature(declaration: "var", name:  funcSignature.readableName + "WasCalled", type: "Bool?")
+        paramMockers = funcSignature.params.map { ParamMockerFactory.create(funcParam: $0, funcName: funcSignature.name, indentation: indentation) }
         if !funcSignature.isReturnVoid {
-            returnVariable = VarSignature(declaration: "var", name: funcSignature.readableName + "ShouldReturn", type: funcSignature.returnType)
+            returnVariable = VarSignature(declaration: "var", name: funcSignature.readableName + "ShouldReturn", type: funcSignature.returnType.forceUnwrappedName)
         }
+        self.indentation = indentation
+    }
 
-        var bodyLines = FuncMocker.funcBodyWithSensible(vars: sensibleVariables, params: sensibleParams, indentation: indentation)
+    var bodyLines: [String] {
+        var bodyLines = paramMockers.flatMap { $0.lines }
         let wasCalledBodyLine = "\(indentation)\(indentation)\(wasCalledVariable.name) = true"
         bodyLines.append(wasCalledBodyLine)
         if let returnVariable = returnVariable {
             let returnLine = "\(indentation)\(indentation)return \(returnVariable.name)"
             bodyLines.append(returnLine)
         }
-        self.funcBodyLines = bodyLines
+        return bodyLines
+    }
 
+    var lines: [String] {
         var lines: [String] = []
         lines.append("\(indentation)\(funcSignature.rawString) {")
-        lines.append(contentsOf: funcBodyLines)
+        lines.append(contentsOf: bodyLines)
         lines.append("\(indentation)}")
-        self.lines = lines
+        return lines
     }
+
+
+    var sensibleVariables: [VarSignature] {
+        return paramMockers.flatMap { $0.variables }
+    }
+
 
     private static func funcBodyWithSensible(vars: [VarSignature], params: [FuncParam], indentation: String) -> [String] {
         guard vars.count == params.count else {
@@ -62,4 +65,3 @@ struct FuncMocker {
         return funcBodyLines
     }
 }
-

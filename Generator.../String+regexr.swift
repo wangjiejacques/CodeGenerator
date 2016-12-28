@@ -29,7 +29,10 @@ extension String {
 
     /// remove the space at the begining and at the end
     var trimed: String {
-        return substring(with: "\\S.*\\S".firstMatch(in: self)!.range)
+        guard let result = "\\S.*\\S".firstMatch(in: self) else {
+            return ""
+        }
+        return substring(with: result.range)
     }
 
     func count(of char: Character) -> Int {
@@ -40,5 +43,15 @@ extension String {
             }
         }
         return count
+    }
+
+    func repeating(_ count: Int) -> String {
+        return Array(repeating: self, count: count).joined()
+    }
+
+    /// Capitalized the first letter
+    var Capitalized: String {
+        let range = Range(uncheckedBounds: (lower: startIndex, upper: index(after: startIndex)))
+        return replacingCharacters(in: range, with: substring(with: range).uppercased())
     }
 }

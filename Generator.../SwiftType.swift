@@ -10,14 +10,20 @@ import Foundation
 
 class SwiftType {
 
+    static let Void = SwiftType(rawString: "Void")
+
     let rawString: String
 
     init(rawString: String) {
-        self.rawString = rawString
+        self.rawString = rawString.trimed
     }
 
     var name: String {
         return rawString
+    }
+
+    var isSensible: Bool {
+        return true
     }
 
     var unwrappedName: String {
@@ -43,6 +49,7 @@ class SwiftType {
     var forceUnwrappedName: String {
         return name(with: "!")
     }
+
 }
 
 

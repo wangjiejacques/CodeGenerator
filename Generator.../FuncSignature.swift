@@ -13,21 +13,20 @@ private let wrongFuncFormat = "func format incorrect"
 struct FuncSignature {
     let name: String
     let params: [FuncParam]
-    let returnType: String
+    let returnType: SwiftType
 
     var readableName: String {
         if params.isEmpty {
             return name
         }
-        return name + params[0].readableLabel.capitalized
+        return name + params[0].readableLabel.Capitalized
     }
 
     var isReturnVoid: Bool {
-        return returnType == "Void"
+        return returnType == SwiftType.Void
     }
 
-    init(string rawString: String) {
-        let string = rawString.replacingOccurrences(of: "@escaping", with: "")
+    init(string: String) {
         guard let nameResult = "func ([\\S]*)\\(".firstMatch(in: string) else {
             preconditionFailure(wrongFuncFormat)
         }
@@ -59,14 +58,33 @@ struct FuncSignature {
         }
         startIndex += 1
         let rawParams = string.substring(with: NSRange(location: startIndex, length: endIndex-startIndex))
-        let paramsString = rawParams.components(separatedBy: ",").filter { !$0.isEmpty }
-        params = paramsString.map { FuncParam(string: $0) }.flatMap { $0 }
+        var parenthesisDiff = 0
+        var paramEnd = 0
+        var paramsString = [String]()
+        rawParams.characters.enumerated().forEach { index, character in
+            if character == "(" {
+                parenthesisDiff += 1
+            }
+            if character == ")" {
+                parenthesisDiff -= 1
+            }
+            if parenthesisDiff == 0 && character == "," {
+                let start = rawParams.index(rawParams.startIndex, offsetBy: paramEnd)
+                let end = rawParams.index(rawParams.startIndex, offsetBy: index)
+                paramEnd = index + 1
+                paramsString.append(rawParams.substring(with: Range(uncheckedBounds: (lower: start, upper: end))))
+            }
+        }
+        let lastStart = rawParams.index(rawParams.startIndex, offsetBy: paramEnd)
+        paramsString.append(rawParams.substring(with: Range(uncheckedBounds: (lower: lastStart, upper: rawParams.endIndex))))
+        params = paramsString.map { FuncParam(string: $0.trimed) }.flatMap { $0 }
 
         guard let returnTypeResult = "->([^>]*)$".firstMatch(in: string) else {
-            returnType = "Void"
+            returnType = SwiftType.Void
             return
         }
-        returnType = string.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
+        let returnTypeString = string.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
+        returnType = TypeParser.parse(string: returnTypeString)
     }
 }
 
