@@ -77,6 +77,7 @@ struct FuncSignature {
         }
         let lastStart = rawParams.index(rawParams.startIndex, offsetBy: paramEnd)
         paramsString.append(rawParams.substring(with: Range(uncheckedBounds: (lower: lastStart, upper: rawParams.endIndex))))
+        paramsString = paramsString.filter { !$0.isEmpty }
         params = paramsString.map { FuncParam(string: $0.trimed) }.flatMap { $0 }
 
         guard let returnTypeResult = "->([^>]*)$".firstMatch(in: string) else {

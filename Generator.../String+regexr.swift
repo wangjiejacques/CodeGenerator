@@ -51,6 +51,8 @@ extension String {
 
     /// Capitalized the first letter
     var Capitalized: String {
+        guard !isEmpty else { return "" }
+        
         let range = Range(uncheckedBounds: (lower: startIndex, upper: index(after: startIndex)))
         return replacingCharacters(in: range, with: substring(with: range).uppercased())
     }
