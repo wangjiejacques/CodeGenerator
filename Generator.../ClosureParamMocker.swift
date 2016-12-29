@@ -22,7 +22,9 @@ struct ClosureParamMocker: ParamMocker {
         var variables = [VarSignature]()
         variables.append(varShouldCallClosure)
         variables.append(contentsOf: varsIn)
-        variables.append(varOut)
+        if let varOut = varOut {
+            variables.append(varOut)
+        }
         return variables
     }
 
@@ -40,14 +42,22 @@ struct ClosureParamMocker: ParamMocker {
         return varsIn
     }
 
-    private var varOut: VarSignature {
+    private var varOut: VarSignature? {
+        if closureType.outType == .Void {
+            return nil
+        }
         return VarSignature(declaration: "var", name: "\(funcName)\(param.name.Capitalized)DidReturn", type: TypeParser.parse(string: closureType.outType.optionalName))
     }
 
     var lines: [String] {
         var lines = [String]()
         lines.append("\(indentation.repeating(2))if \(varShouldCallClosure.name) {")
-        lines.append("\(indentation.repeating(3))\(varOut.name) = \(param.name)("+varsIn.map { $0.name }.joined(separator: ", ")+")")
+        let callClosure = "\(param.name)("+varsIn.map { $0.name }.joined(separator: ", ")+")"
+        if let varOut = varOut {
+            lines.append("\(indentation.repeating(3))\(varOut.name) = \(callClosure)")
+        } else {
+            lines.append("\(indentation.repeating(3))\(callClosure)")
+        }
         lines.append("\(indentation.repeating(2))}")
         return lines
     }
