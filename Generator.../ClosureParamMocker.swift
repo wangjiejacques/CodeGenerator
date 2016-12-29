@@ -27,7 +27,9 @@ struct ClosureParamMocker: ParamMocker {
     }
 
     private var varShouldCallClosure: VarSignature {
-        return VarSignature(declaration: "var", name: "\(funcName)ShouldCall\(param.name.Capitalized)", type: TypeParser.parse(string: "Bool?"))
+        var varSignature = VarSignature(declaration: "var", name: "\(funcName)ShouldCall\(param.name.Capitalized)", type: TypeParser.parse(string: "Bool?"))
+        varSignature.initValue = "true"
+        return varSignature
     }
 
     private var varsIn: [VarSignature] {

@@ -15,6 +15,7 @@ struct VarSignature {
     let name: String
     let type: SwiftType
     var accessLevel: AccessLevel = .internal
+    var initValue: String?
 
     init?(string: String) {
         guard let _ = "^(?!.*static).*\\s(let|var) \\S".firstMatch(in: string) else {
@@ -75,6 +76,9 @@ extension VarSignature {
     }
 
     private func string(with type: String) -> String {
+        if let initValue = initValue {
+            return "\(declaration) \(name) = \(initValue)"
+        }
         return "\(declaration) \(name): \(type)"
     }
 }
