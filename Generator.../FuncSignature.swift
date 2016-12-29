@@ -102,6 +102,6 @@ extension FuncSignature {
         if isReturnVoid {
             return rawString
         }
-        return "\(rawString) -> \(returnType)"
+        return "\(rawString) -> \(returnType.name)"
     }
 }
