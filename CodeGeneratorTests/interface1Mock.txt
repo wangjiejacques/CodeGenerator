@@ -5,7 +5,6 @@ class PokemonMock: Pokemon {
     var drinkWater: String?
     var evolveShouldCallSuccessHandler = true
     var evolveSuccessHandlerParam0: String!
-    var evolveSuccessHandlerDidReturn: Void?
     var evolveShouldCallFailureHandler = true
     var evolveFailureHandlerParam0: String!
     var evolveFailureHandlerDidReturn: String?
