@@ -3,10 +3,10 @@ class PokemonMock: Pokemon {
 
     var eatFood: String?
     var drinkWater: String?
-    var evolveShouldCallSuccessHandler: Bool?
+    var evolveShouldCallSuccessHandler = true
     var evolveSuccessHandlerParam0: String!
     var evolveSuccessHandlerDidReturn: Void?
-    var evolveShouldCallFailureHandler: Bool?
+    var evolveShouldCallFailureHandler = true
     var evolveFailureHandlerParam0: String!
     var evolveFailureHandlerDidReturn: String?
     
