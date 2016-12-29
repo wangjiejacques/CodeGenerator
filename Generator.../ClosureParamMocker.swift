@@ -33,7 +33,7 @@ struct ClosureParamMocker: ParamMocker {
     private var varsIn: [VarSignature] {
         var varsIn = [VarSignature]()
         closureType.inTypes.enumerated().forEach { index, inType in
-            varsIn.append(VarSignature(declaration: "var", name: "\(funcName)\(param.name.Capitalized)Param\(index)", type: TypeParser.parse(string: inType.forceUnwrappedName)))
+            varsIn.append(VarSignature(declaration: "var", name: "\(funcName)\(param.name.Capitalized)Param\(index)", type: inType.forceUnwrappedName))
         }
         return varsIn
     }

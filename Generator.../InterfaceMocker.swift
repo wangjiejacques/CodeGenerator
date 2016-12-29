@@ -37,7 +37,7 @@ struct InterfaceMocker {
     private mutating func initSource() {
         mockSource.append("class \(interfaceName)Mock: \(interfaceName) {")
         append(variables: variables, varType: { $0.rawType })
-        append(variables: sensibleVariables, varType: { $0.optionalType })
+        append(variables: sensibleVariables, varType: { $0.rawType })
         append(variables: wasCalledVariables, varType: { $0.optionalType })
         append(variables: returnVariables, varType: { $0.forceUnwrappedType })
         funcsMockers.forEach { funcMocker in
