@@ -9,7 +9,7 @@ class PokemonMock: Pokemon {
     var evolveShouldCallFailureHandler = true
     var evolveFailureHandlerParam0: String!
     var evolveFailureHandlerDidReturn: String?
-    
+
     var eatFoodWasCalled: Bool?
     var drinkWasCalled: Bool?
     var isFlyingWasCalled: Bool?
