@@ -37,7 +37,7 @@ class FuncSignatureTests: XCTestCase {
         XCTAssertEqual(func2.params.count, 2)
         XCTAssertEqual(func2.params[0], FuncParam(label: "closure", name: "closure", type: "(String?) -> Int?"))
         XCTAssertEqual(func2.params[1], FuncParam(label: "closure2Label", name: "closure2", type: "@escaping (String?) -> String?"))
-        XCTAssertEqual(func2.rawString, "func func2(closure: (String?) -> Int?, closure2Label closure2: (String?) -> String?) -> String?")
+        XCTAssertEqual(func2.rawString, "func func2(closure: (String?) -> Int?, closure2Label closure2: @escaping (String?) -> String?) -> String?")
     }
 
     func testFunc3() {
