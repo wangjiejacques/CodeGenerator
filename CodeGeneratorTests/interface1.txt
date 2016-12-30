@@ -1,6 +1,7 @@
 protocol Pokemon {
     var height: Double! { get set }
     var canEvolve: Bool! { get }
+    // var weight: Double!
 
     func eat(food: String)
 
