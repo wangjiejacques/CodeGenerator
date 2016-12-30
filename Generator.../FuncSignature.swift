@@ -32,11 +32,29 @@ struct FuncSignature {
         }
         name = string.substring(with: nameResult.rangeAt(1))
 
+        let paramsRange = string.paramsRange
+        let rawParams = string.substring(with: paramsRange)
+        let paramsString = rawParams.paramsStrings
+        params = paramsString.map { FuncParam(string: $0.trimed) }.flatMap { $0 }
+
+        let stringAfterLastParam = string.substring(from: string.index(string.startIndex, offsetBy: paramsRange.toRange()!.upperBound))
+
+        guard let returnTypeResult = "->(.*)$".firstMatch(in: stringAfterLastParam) else {
+            returnType = SwiftType.Void
+            return
+        }
+        let returnTypeString = stringAfterLastParam.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
+        returnType = TypeParser.parse(string: returnTypeString)
+    }
+}
+
+private extension String {
+    var paramsRange: NSRange {
         var startParenthesisCount = 0
         var endParenthesisCount = 0
         var paramsStartIndex: Int!
         var paramsEndIndex: Int!
-        string.characters.enumerated().forEach { index, char in
+        characters.enumerated().forEach { index, char in
             if char == "(" {
                 startParenthesisCount += 1
                 if paramsStartIndex == nil {
@@ -57,11 +75,14 @@ struct FuncSignature {
             preconditionFailure(wrongFuncFormat)
         }
         startIndex += 1
-        let rawParams = string.substring(with: NSRange(location: startIndex, length: endIndex-startIndex))
+        return NSRange(location: startIndex, length: endIndex-startIndex)
+    }
+
+    var paramsStrings: [String] {
         var parenthesisDiff = 0
         var paramEnd = 0
         var paramsString = [String]()
-        rawParams.characters.enumerated().forEach { index, character in
+        characters.enumerated().forEach { index, character in
             if character == "(" {
                 parenthesisDiff += 1
             }
@@ -69,25 +90,15 @@ struct FuncSignature {
                 parenthesisDiff -= 1
             }
             if parenthesisDiff == 0 && character == "," {
-                let start = rawParams.index(rawParams.startIndex, offsetBy: paramEnd)
-                let end = rawParams.index(rawParams.startIndex, offsetBy: index)
+                let start = self.index(startIndex, offsetBy: paramEnd)
+                let end = self.index(startIndex, offsetBy: index)
                 paramEnd = index + 1
-                paramsString.append(rawParams.substring(with: Range(uncheckedBounds: (lower: start, upper: end))))
+                paramsString.append(substring(with: Range(uncheckedBounds: (lower: start, upper: end))))
             }
         }
-        let lastStart = rawParams.index(rawParams.startIndex, offsetBy: paramEnd)
-        paramsString.append(rawParams.substring(with: Range(uncheckedBounds: (lower: lastStart, upper: rawParams.endIndex))))
-        paramsString = paramsString.filter { !$0.isEmpty }
-        params = paramsString.map { FuncParam(string: $0.trimed) }.flatMap { $0 }
-
-        let stringAfterLastParam = string.substring(from: string.index(string.startIndex, offsetBy: paramsEndIndex))
-
-        guard let returnTypeResult = "->(.*)$".firstMatch(in: stringAfterLastParam) else {
-            returnType = SwiftType.Void
-            return
-        }
-        let returnTypeString = stringAfterLastParam.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
-        returnType = TypeParser.parse(string: returnTypeString)
+        let lastStart = index(startIndex, offsetBy: paramEnd)
+        paramsString.append(substring(with: Range(uncheckedBounds: (lower: lastStart, upper: endIndex))))
+        return paramsString.filter { !$0.isEmpty }
     }
 }
 
