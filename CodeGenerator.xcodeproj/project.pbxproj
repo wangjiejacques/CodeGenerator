@@ -270,7 +270,7 @@
 		A03920811E0F3A8B005A6E89 /* Generate... */ = {
 			isa = PBXGroup;
 			children = (
-				A0636FD21E12944B0008CE98 /* GenerateEquatableCommand */,
+				A0636FD21E12944B0008CE98 /* Equatable */,
 				A01E469E1E105EB400395AED /* Mocker */,
 				A01E46881E0FF95900395AED /* Source */,
 				A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */,
@@ -291,12 +291,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A0636FD21E12944B0008CE98 /* GenerateEquatableCommand */ = {
+		A0636FD21E12944B0008CE98 /* Equatable */ = {
 			isa = PBXGroup;
 			children = (
 				A0636FD31E1294650008CE98 /* EquatableGenerator.swift */,
 			);
-			name = GenerateEquatableCommand;
+			name = Equatable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
