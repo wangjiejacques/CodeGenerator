@@ -80,7 +80,7 @@
 			containerPortal = A03920511E0F3A7B005A6E89 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A039207C1E0F3A8B005A6E89;
-			remoteInfo = Generator...;
+			remoteInfo = Generate...;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -280,8 +280,7 @@
 				A03920881E0F3A8B005A6E89 /* Info.plist */,
 				A03920821E0F3A8B005A6E89 /* Supporting Files */,
 			);
-			name = Generate...;
-			path = Generator...;
+			path = Generate...;
 			sourceTree = "<group>";
 		};
 		A03920821E0F3A8B005A6E89 /* Supporting Files */ = {
@@ -353,7 +352,7 @@
 			dependencies = (
 			);
 			name = Generate...;
-			productName = Generator...;
+			productName = Generate...;
 			productReference = A039207D1E0F3A8B005A6E89 /* Generate....appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
@@ -693,11 +692,11 @@
 		A039208D1E0F3A8B005A6E89 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Generator.../Generate___.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Generate.../Generate___.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6DJS27PW5B;
-				INFOPLIST_FILE = Generator.../Info.plist;
+				INFOPLIST_FILE = Generate.../Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjie.CodeGenerator.Generate;
@@ -710,11 +709,11 @@
 		A039208E1E0F3A8B005A6E89 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Generator.../Generate___.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Generate.../Generate___.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6DJS27PW5B;
-				INFOPLIST_FILE = Generator.../Info.plist;
+				INFOPLIST_FILE = Generate.../Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjie.CodeGenerator.Generate;
