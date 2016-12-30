@@ -88,4 +88,4 @@ extension EquatableClazz: Equatable {
 }
 ```
 
-if you don't want to use all the vars for the Equatable, just select the vars you want and click Generat... -> Equatable
+if you don't want to use all the vars for the Equatable, just select the vars you want and click Generate... -> Equatable
