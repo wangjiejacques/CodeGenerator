@@ -16,7 +16,6 @@ class PokemonMock: Pokemon {
     var evolveSuccessHandlerWasCalled: Bool?
 
     var isFlyingShouldReturn: Bool!
-    var evolveSuccessHandlerShouldReturn: String!
 
     func eat(food: String) {
         eatFood = food
