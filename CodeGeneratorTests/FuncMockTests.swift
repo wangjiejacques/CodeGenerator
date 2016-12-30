@@ -41,6 +41,12 @@ class FuncMockerTests: XCTestCase {
         }
     }
 
+    func testFunReturnVoid() {
+        let funcSignature = FuncSignature(string: "func test(funcMock: String, successHandler: @escaping (String, Int?) -> String?)")
+        let funcMocker = FuncMocker(funcSignature: funcSignature, indentationWidth: 1)
+        XCTAssertNil(funcMocker.returnVariable)
+    }
+
     func testFuncMocker1() {
         let funcSignature = FuncSignature(string: "func func3() {")
         let funcMocker = FuncMocker(funcSignature: funcSignature, indentationWidth: 1)

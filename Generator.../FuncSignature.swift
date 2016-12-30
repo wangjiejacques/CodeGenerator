@@ -34,8 +34,8 @@ struct FuncSignature {
 
         var startParenthesisCount = 0
         var endParenthesisCount = 0
-        var paramsStartIndex: Int?
-        var paramsEndIndex: Int?
+        var paramsStartIndex: Int!
+        var paramsEndIndex: Int!
         string.characters.enumerated().forEach { index, char in
             if char == "(" {
                 startParenthesisCount += 1
@@ -80,11 +80,13 @@ struct FuncSignature {
         paramsString = paramsString.filter { !$0.isEmpty }
         params = paramsString.map { FuncParam(string: $0.trimed) }.flatMap { $0 }
 
-        guard let returnTypeResult = "->([^>]*)$".firstMatch(in: string) else {
+        let stringAfterLastParam = string.substring(from: string.index(string.startIndex, offsetBy: paramsEndIndex))
+
+        guard let returnTypeResult = "->(.*)$".firstMatch(in: stringAfterLastParam) else {
             returnType = SwiftType.Void
             return
         }
-        let returnTypeString = string.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
+        let returnTypeString = stringAfterLastParam.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
         returnType = TypeParser.parse(string: returnTypeString)
     }
 }
