@@ -31,7 +31,7 @@
 		A03920801E0F3A8B005A6E89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A039207F1E0F3A8B005A6E89 /* Cocoa.framework */; };
 		A03920851E0F3A8B005A6E89 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */; };
 		A03920871E0F3A8B005A6E89 /* GenerateMockCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */; };
-		A039208B1E0F3A8B005A6E89 /* Generator....appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A039207D1E0F3A8B005A6E89 /* Generator....appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A039208B1E0F3A8B005A6E89 /* Generate....appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A039207D1E0F3A8B005A6E89 /* Generate....appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03920901E0F3AEF005A6E89 /* String+regexr.swift */; };
 		A04453D11E1567EE0063CB99 /* ClosureParamMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2766A1E156738003CC557 /* ClosureParamMocker.swift */; };
 		A04453D31E156A080063CB99 /* funcMock.txt in Resources */ = {isa = PBXBuildFile; fileRef = A04453D21E156A080063CB99 /* funcMock.txt */; };
@@ -91,7 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A039208B1E0F3A8B005A6E89 /* Generator....appex in Embed App Extensions */,
+				A039208B1E0F3A8B005A6E89 /* Generate....appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,9 +118,9 @@
 		A039206A1E0F3A7B005A6E89 /* CodeGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A039206E1E0F3A7B005A6E89 /* CodeGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGeneratorTests.swift; sourceTree = "<group>"; };
 		A03920701E0F3A7B005A6E89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A039207D1E0F3A8B005A6E89 /* Generator....appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Generator....appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A039207D1E0F3A8B005A6E89 /* Generate....appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Generate....appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A039207F1E0F3A8B005A6E89 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		A03920831E0F3A8B005A6E89 /* Generator___.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Generator___.entitlements"; sourceTree = "<group>"; };
+		A03920831E0F3A8B005A6E89 /* Generate___.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Generate___.entitlements"; sourceTree = "<group>"; };
 		A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
 		A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateMockCommand.swift; sourceTree = "<group>"; };
 		A03920881E0F3A8B005A6E89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			children = (
 				A039205B1E0F3A7B005A6E89 /* CodeGenerator */,
 				A039206D1E0F3A7B005A6E89 /* CodeGeneratorTests */,
-				A03920811E0F3A8B005A6E89 /* Generator... */,
+				A03920811E0F3A8B005A6E89 /* Generate... */,
 				A039207E1E0F3A8B005A6E89 /* Frameworks */,
 				A039205A1E0F3A7B005A6E89 /* Products */,
 			);
@@ -219,7 +219,7 @@
 			children = (
 				A03920591E0F3A7B005A6E89 /* CodeGenerator.app */,
 				A039206A1E0F3A7B005A6E89 /* CodeGeneratorTests.xctest */,
-				A039207D1E0F3A8B005A6E89 /* Generator....appex */,
+				A039207D1E0F3A8B005A6E89 /* Generate....appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A03920811E0F3A8B005A6E89 /* Generator... */ = {
+		A03920811E0F3A8B005A6E89 /* Generate... */ = {
 			isa = PBXGroup;
 			children = (
 				A0636FD21E12944B0008CE98 /* GenerateEquatableCommand */,
@@ -280,13 +280,14 @@
 				A03920881E0F3A8B005A6E89 /* Info.plist */,
 				A03920821E0F3A8B005A6E89 /* Supporting Files */,
 			);
+			name = Generate...;
 			path = Generator...;
 			sourceTree = "<group>";
 		};
 		A03920821E0F3A8B005A6E89 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A03920831E0F3A8B005A6E89 /* Generator___.entitlements */,
+				A03920831E0F3A8B005A6E89 /* Generate___.entitlements */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -339,9 +340,9 @@
 			productReference = A039206A1E0F3A7B005A6E89 /* CodeGeneratorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A039207C1E0F3A8B005A6E89 /* Generator... */ = {
+		A039207C1E0F3A8B005A6E89 /* Generate... */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A039208C1E0F3A8B005A6E89 /* Build configuration list for PBXNativeTarget "Generator..." */;
+			buildConfigurationList = A039208C1E0F3A8B005A6E89 /* Build configuration list for PBXNativeTarget "Generate..." */;
 			buildPhases = (
 				A03920791E0F3A8B005A6E89 /* Sources */,
 				A039207A1E0F3A8B005A6E89 /* Frameworks */,
@@ -351,9 +352,9 @@
 			);
 			dependencies = (
 			);
-			name = Generator...;
+			name = Generate...;
 			productName = Generator...;
-			productReference = A039207D1E0F3A8B005A6E89 /* Generator....appex */;
+			productReference = A039207D1E0F3A8B005A6E89 /* Generate....appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
@@ -399,7 +400,7 @@
 			targets = (
 				A03920581E0F3A7B005A6E89 /* CodeGenerator */,
 				A03920691E0F3A7B005A6E89 /* CodeGeneratorTests */,
-				A039207C1E0F3A8B005A6E89 /* Generator... */,
+				A039207C1E0F3A8B005A6E89 /* Generate... */,
 			);
 		};
 /* End PBXProject section */
@@ -516,7 +517,7 @@
 		};
 		A039208A1E0F3A8B005A6E89 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A039207C1E0F3A8B005A6E89 /* Generator... */;
+			target = A039207C1E0F3A8B005A6E89 /* Generate... */;
 			targetProxy = A03920891E0F3A8B005A6E89 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -692,14 +693,14 @@
 		A039208D1E0F3A8B005A6E89 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Generator.../Generator___.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Generator.../Generate___.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6DJS27PW5B;
 				INFOPLIST_FILE = Generator.../Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wangjie.CodeGenerator.Generator---";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjie.CodeGenerator.Generate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -709,14 +710,14 @@
 		A039208E1E0F3A8B005A6E89 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Generator.../Generator___.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Generator.../Generate___.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6DJS27PW5B;
 				INFOPLIST_FILE = Generator.../Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wangjie.CodeGenerator.Generator---";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjie.CodeGenerator.Generate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -753,7 +754,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A039208C1E0F3A8B005A6E89 /* Build configuration list for PBXNativeTarget "Generator..." */ = {
+		A039208C1E0F3A8B005A6E89 /* Build configuration list for PBXNativeTarget "Generate..." */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A039208D1E0F3A8B005A6E89 /* Debug */,
