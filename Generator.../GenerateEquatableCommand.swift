@@ -23,7 +23,7 @@ class GenerateEquatableCommand: NSObject, XCSourceEditorCommand {
     }
 
     private func generateForAllVariables(with invocation: XCSourceEditorCommandInvocation) {
-        let equatableGenerator = EquatableGenerator(interfaceSignature: interfaceSignature(of: invocation), indentation: indentation(of: invocation))
+        let equatableGenerator = EquatableGenerator(interfaceSignature: interfaceSignature(of: invocation), indentation: " ".repeating(invocation.buffer.indentationWidth))
         invocation.buffer.lines.addObjects(from: equatableGenerator.lines)
     }
 
@@ -36,7 +36,7 @@ class GenerateEquatableCommand: NSObject, XCSourceEditorCommand {
             }
         }
         let selectedVars = selectedLines.flatMap { VarSignature(string: $0) }
-        let equatableGenerator = EquatableGenerator(interfaceDefinition: interfaceSignature(of: invocation).definition, varSignatures: selectedVars, indentation: indentation(of: invocation))
+        let equatableGenerator = EquatableGenerator(interfaceDefinition: interfaceSignature(of: invocation).definition, varSignatures: selectedVars, indentation: " ".repeating(invocation.buffer.indentationWidth))
         invocation.buffer.lines.addObjects(from: equatableGenerator.lines)
     }
 }
@@ -45,10 +45,6 @@ extension XCSourceTextPosition: Equatable {
     public static func==(l: XCSourceTextPosition, r: XCSourceTextPosition) -> Bool {
         return l.column == r.column && r.line == l.line
     }
-}
-
-private func indentation(of invocation: XCSourceEditorCommandInvocation) -> String {
-    return Array(repeating: " ", count: invocation.buffer.indentationWidth).joined()
 }
 
 private func interfaceSignature(of invocation: XCSourceEditorCommandInvocation) -> InterfaceSignature {
