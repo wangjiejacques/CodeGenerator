@@ -30,10 +30,10 @@ class InterfaceMockerTests: XCTestCase {
         let mockSource = string(from: "interface1Mock", ofType: "txt")
         var mockSourceLines = mockSource.components(separatedBy: "\n")
         mockSourceLines.removeLast()
-        XCTAssertEqual(interfaceMocker.mockSource.count, mockSourceLines.count)
-        let size = min(interfaceMocker.mockSource.count, mockSourceLines.count)
+        XCTAssertEqual(interfaceMocker.lines.count, mockSourceLines.count)
+        let size = min(interfaceMocker.lines.count, mockSourceLines.count)
         for i in 0..<size {
-            XCTAssertEqual(interfaceMocker.mockSource[i], mockSourceLines[i], "line\(i) failure")
+            XCTAssertEqual(interfaceMocker.lines[i], mockSourceLines[i], "line\(i) failure")
         }
     }
 

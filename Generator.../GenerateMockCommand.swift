@@ -16,7 +16,7 @@ class GenerateMockCommand: NSObject, XCSourceEditorCommand {
         let interfaceMocker = InterfaceMocker(interfaceSignature: interfaceSignature, indentationWidth: invocation.buffer.indentationWidth)
         invocation.buffer.lines.add("")
         invocation.buffer.lines.add("")
-        invocation.buffer.lines.addObjects(from: interfaceMocker.mockSource)
+        invocation.buffer.lines.addObjects(from: interfaceMocker.lines)
         completionHandler(nil)
     }
 }

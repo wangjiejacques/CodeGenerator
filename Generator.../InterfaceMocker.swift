@@ -16,40 +16,41 @@ struct InterfaceMocker {
     let returnVariables: [VarSignature]
     let funcsMockers: [FuncMocker]
     let indentation: String
-    private (set) var mockSource: [String] = []
 
     private var interfaceName: String {
         return interfaceSignature.definition.name
     }
 
     init(interfaceSignature: InterfaceSignature, indentationWidth: Int) {
-        indentation = Array(repeating: " ", count: indentationWidth).reduce("", +)
+        indentation = " ".repeating(indentationWidth)
         self.interfaceSignature = interfaceSignature
         variables = interfaceSignature.varSignatures.filter { !$0.isPrivate }
         funcsMockers = interfaceSignature.funcSignatures.map { FuncMocker(funcSignature: $0, indentationWidth: indentationWidth) }
         sensibleVariables = funcsMockers.flatMap { $0.sensibleVariables }
         wasCalledVariables = funcsMockers.map { $0.wasCalledVariable }
         returnVariables = funcsMockers.flatMap { $0.returnVariable }
-
-        initSource()
     }
 
-    private mutating func initSource() {
-        mockSource.append("class \(interfaceName)Mock: \(interfaceName) {")
-        append(variables: variables, varType: { $0.rawType })
-        append(variables: sensibleVariables, varType: { $0.rawType })
-        append(variables: wasCalledVariables, varType: { $0.optionalType })
-        append(variables: returnVariables, varType: { $0.forceUnwrappedType })
+    var lines: [String] {
+        var lines = [String]()
+        lines.append("class \(interfaceName)Mock: \(interfaceName) {")
+        lines += linesOf(variables: variables, varType: { $0.rawType })
+        lines += linesOf(variables: sensibleVariables, varType: { $0.rawType })
+        lines += linesOf(variables: wasCalledVariables, varType: { $0.optionalType })
+        lines += linesOf(variables: returnVariables, varType: { $0.forceUnwrappedType })
         funcsMockers.forEach { funcMocker in
-            mockSource.append(contentsOf: funcMocker.lines)
-            mockSource.append("")
+            lines.append(contentsOf: funcMocker.lines)
+            lines.append("")
         }
-        mockSource.append("}")
+        lines.append("}")
+        return lines
     }
 
-    private mutating func append(variables: [VarSignature], varType: (VarSignature) -> String) {
-        guard !variables.isEmpty else { return }
-        variables.forEach { mockSource.append("\(indentation)\(varType($0))") }
-        mockSource.append("")
+    private func linesOf(variables: [VarSignature], varType: (VarSignature) -> String) -> [String] {
+        guard !variables.isEmpty else { return [] }
+        var lines = [String]()
+        variables.forEach { lines.append("\(indentation)\(varType($0))") }
+        lines.append("")
+        return lines
     }
 }
