@@ -58,7 +58,7 @@ extension FuncParam: Equatable {
 
 extension FuncParam {
     var rawString: String {
-        let rawString = "\(name): \(type.name)"
+        let rawString = "\(name): \(type.rawString)"
         if name == label {
             return rawString
         }
