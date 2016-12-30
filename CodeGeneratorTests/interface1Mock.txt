@@ -1,4 +1,5 @@
 class PokemonMock: Pokemon {
+    var height: Double!
     var canEvolve: Bool!
 
     var eatFood: String?
