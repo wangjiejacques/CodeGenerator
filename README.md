@@ -5,6 +5,7 @@ CodeGenerator is a Xcode extension for swift code generation.
 ![alt tag](https://j.gifs.com/pgVEVr.gif)
 
 ## Generating Equatable
+### Example:
 ```
 class EquatableClazz {
     var var0: Int!
@@ -21,4 +22,4 @@ extension EquatableClazz: Equatable {
 }
 ```
 
-And also, if you don't want to use all the vars for the Equatable, just select the vars you want and click Generat... -> Equatable
+if you don't want to use all the vars for the Equatable, just select the vars you want and click Generat... -> Equatable
