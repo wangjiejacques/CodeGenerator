@@ -47,11 +47,11 @@ struct HashableGenerator: Generator {
         lines.append("\(indentation)var hashValue: Int {")
         lines.append("\(indentation)\(indentation)var hashValue = 1")
         let hashableVars = varSignatures.map { $0.name }.joined(separator: ", ")
-        var varsType = "[Hashable]"
+        var varsType = "[AnyHashable]"
         var varHash = "$0.hashValue"
         if (varSignatures.filter { $0.type.isOptional }).count > 0 {
-            varsType = "[Hashable?]"
-            varHash = "$0?.hashValue ?? 0"
+            varsType = "[AnyHashable?]"
+            varHash = "($0?.hashValue ?? 0)"
         }
         lines.append("\(indentation)\(indentation)let hashableVars: \(varsType) = [\(hashableVars)]")
 

@@ -6,9 +6,9 @@ extension EquatableClazz: Hashable {
 
     var hashValue: Int {
         var hashValue = 1
-        let hashableVars: [Hashable?] = [var0, var1, var2]
+        let hashableVars: [AnyHashable?] = [var0, var1, var2]
         hashableVars.forEach {
-            hashValue = 31 * hashValue + $0?.hashValue ?? 0
+            hashValue = 31 * hashValue + ($0?.hashValue ?? 0)
         }
         return hashValue
     }
