@@ -56,6 +56,7 @@
 		A0A02CCB1E1A6A3F001900DC /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A02CC21E1A60EA001900DC /* Generator.swift */; };
 		A0A02CD01E1A6DE3001900DC /* SelectableGeneratorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A02CCE1E1A6DE3001900DC /* SelectableGeneratorCommand.swift */; };
 		A0A02CD31E1A7236001900DC /* GenerateEquatableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A02CD11E1A7236001900DC /* GenerateEquatableCommand.swift */; };
+		A0A02CD51E1A739A001900DC /* GenerateHashableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A02CD41E1A739A001900DC /* GenerateHashableCommand.swift */; };
 		A0A82AE71E11571200F27EA3 /* interface1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0A82AE61E11571200F27EA3 /* interface1.txt */; };
 		A0A82AE91E11593800F27EA3 /* interface1Mock.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0A82AE81E11593800F27EA3 /* interface1Mock.txt */; };
 		A0A82AEB1E1159C200F27EA3 /* NSObject+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */; };
@@ -147,6 +148,7 @@
 		A0A02CC81E1A68D8001900DC /* GeneratedHash.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneratedHash.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0A02CCE1E1A6DE3001900DC /* SelectableGeneratorCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableGeneratorCommand.swift; sourceTree = "<group>"; };
 		A0A02CD11E1A7236001900DC /* GenerateEquatableCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateEquatableCommand.swift; sourceTree = "<group>"; };
+		A0A02CD41E1A739A001900DC /* GenerateHashableCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateHashableCommand.swift; sourceTree = "<group>"; };
 		A0A82AE61E11571200F27EA3 /* interface1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0A82AE81E11593800F27EA3 /* interface1Mock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interface1Mock.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+file.swift"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				A01E46881E0FF95900395AED /* Source */,
 				A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */,
 				A0A02CD11E1A7236001900DC /* GenerateEquatableCommand.swift */,
+				A0A02CD41E1A739A001900DC /* GenerateHashableCommand.swift */,
 				A0A02CCE1E1A6DE3001900DC /* SelectableGeneratorCommand.swift */,
 				A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */,
 				A03920901E0F3AEF005A6E89 /* String+regexr.swift */,
@@ -527,6 +530,7 @@
 				A0A02CC31E1A60EA001900DC /* Generator.swift in Sources */,
 				A0E2765D1E142670003CC557 /* ParamMocker.swift in Sources */,
 				A01E468A1E100FB200395AED /* FuncParam.swift in Sources */,
+				A0A02CD51E1A739A001900DC /* GenerateHashableCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

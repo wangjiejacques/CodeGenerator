@@ -44,6 +44,14 @@
 					<key>XCSourceEditorCommandName</key>
 					<string>Equatable</string>
 				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).GenerateHashableCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).GenerateHashableCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Hashable</string>
+				</dict>
 			</array>
 			<key>XCSourceEditorExtensionPrincipalClass</key>
 			<string>$(PRODUCT_MODULE_NAME).SourceEditorExtension</string>
