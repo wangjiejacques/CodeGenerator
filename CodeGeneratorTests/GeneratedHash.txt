@@ -1,0 +1,15 @@
+
+extension EquatableClazz: Hashable {
+    static func ==(lhs: EquatableClazz, rhs: EquatableClazz) -> Bool {
+        return lhs.var0 == rhs.var0 && lhs.var1 == rhs.var1 && lhs.var2 == rhs.var2
+    }
+
+    var hashValue: Int {
+        var hashValue = 1
+        let hashableVars: [Hashable?] = [var0, var1, var2]
+        hashableVars.forEach {
+            hashValue = 31 * hashValue + $0?.hashValue ?? 0
+        }
+        return hashValue
+    }
+}

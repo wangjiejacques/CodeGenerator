@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EquatableGenerator {
+struct EquatableGenerator: Generator {
     let varSignatures: [VarSignature]
     let indentation: String
     let interfaceDefinition: InterfaceDefinition
@@ -33,6 +33,13 @@ struct EquatableGenerator {
         var lines = [String]()
         lines.append("")
         lines.append("extension \(interfaceName): Equatable {")
+        lines.append(contentsOf: equatableLines)
+        lines.append("}")
+        return lines
+    }
+
+    var equatableLines: [String] {
+        var lines = [String]()
         lines.append("\(indentation)static func ==(lhs: \(interfaceName), rhs: \(interfaceName)) -> Bool {")
         var varsEquals = [String]()
         varSignatures.forEach { varSignature in
@@ -40,7 +47,6 @@ struct EquatableGenerator {
         }
         lines.append("\(indentation)\(indentation)return \(varsEquals.joined(separator: " && "))")
         lines.append("\(indentation)}")
-        lines.append("}")
         return lines
     }
 }
