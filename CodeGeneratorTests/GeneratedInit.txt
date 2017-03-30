@@ -1,0 +1,5 @@
+class EquatableClazz {
+    var var0: Int!
+    let var1: String
+    var var2: Bool?
+}

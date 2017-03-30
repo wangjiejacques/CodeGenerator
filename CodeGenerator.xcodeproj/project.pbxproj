@@ -23,6 +23,11 @@
 		A01E46951E1030E000395AED /* VarSignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46941E1030E000395AED /* VarSignatureTests.swift */; };
 		A01E46961E10313E00395AED /* VarSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46921E102CBB00395AED /* VarSignature.swift */; };
 		A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E469F1E105EE900395AED /* FuncMocker.swift */; };
+		A031BD391E8D1126003235D5 /* GenerateInitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD381E8D1126003235D5 /* GenerateInitCommand.swift */; };
+		A031BD3B1E8D11D6003235D5 /* InitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD3A1E8D11D6003235D5 /* InitGenerator.swift */; };
+		A031BD3E1E8D187C003235D5 /* GeneratedInit.txt in Resources */ = {isa = PBXBuildFile; fileRef = A031BD3D1E8D187C003235D5 /* GeneratedInit.txt */; };
+		A031BD401E8D191E003235D5 /* InitGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD3F1E8D191E003235D5 /* InitGeneratorTests.swift */; };
+		A031BD411E8D19E9003235D5 /* InitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD3A1E8D11D6003235D5 /* InitGenerator.swift */; };
 		A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039205C1E0F3A7B005A6E89 /* AppDelegate.swift */; };
 		A039205F1E0F3A7B005A6E89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039205E1E0F3A7B005A6E89 /* ViewController.swift */; };
 		A03920611E0F3A7B005A6E89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A03920601E0F3A7B005A6E89 /* Assets.xcassets */; };
@@ -117,6 +122,10 @@
 		A01E46921E102CBB00395AED /* VarSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarSignature.swift; sourceTree = "<group>"; };
 		A01E46941E1030E000395AED /* VarSignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarSignatureTests.swift; sourceTree = "<group>"; };
 		A01E469F1E105EE900395AED /* FuncMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncMocker.swift; sourceTree = "<group>"; };
+		A031BD381E8D1126003235D5 /* GenerateInitCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateInitCommand.swift; sourceTree = "<group>"; };
+		A031BD3A1E8D11D6003235D5 /* InitGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitGenerator.swift; sourceTree = "<group>"; };
+		A031BD3D1E8D187C003235D5 /* GeneratedInit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneratedInit.txt; sourceTree = "<group>"; };
+		A031BD3F1E8D191E003235D5 /* InitGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitGeneratorTests.swift; sourceTree = "<group>"; };
 		A03920591E0F3A7B005A6E89 /* CodeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A039205C1E0F3A7B005A6E89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A039205E1E0F3A7B005A6E89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -263,12 +272,14 @@
 				A0A82AEE1E11676B00F27EA3 /* SwiftTypeTests.swift */,
 				A0636FD51E1299100008CE98 /* EquatableGeneratorTests.swift */,
 				A0A02CC61E1A6868001900DC /* HashableGeneratorTest.swift */,
+				A031BD3F1E8D191E003235D5 /* InitGeneratorTests.swift */,
 				A0A82AEA1E1159C200F27EA3 /* NSObject+file.swift */,
 				A0A82AE61E11571200F27EA3 /* interface1.txt */,
 				A0A82AE81E11593800F27EA3 /* interface1Mock.txt */,
 				A03920701E0F3A7B005A6E89 /* Info.plist */,
 				A0636FD71E12997C0008CE98 /* EquatableClazz.txt */,
 				A0636FD91E1299A80008CE98 /* GeneratedEquals.txt */,
+				A031BD3D1E8D187C003235D5 /* GeneratedInit.txt */,
 				A0A02CC81E1A68D8001900DC /* GeneratedHash.txt */,
 				A04453D21E156A080063CB99 /* funcMock.txt */,
 			);
@@ -286,11 +297,12 @@
 		A03920811E0F3A8B005A6E89 /* Generate... */ = {
 			isa = PBXGroup;
 			children = (
-				A0636FD21E12944B0008CE98 /* Equatable */,
+				A0636FD21E12944B0008CE98 /* Generator */,
 				A01E469E1E105EB400395AED /* Mocker */,
 				A01E46881E0FF95900395AED /* Source */,
 				A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */,
 				A0A02CD11E1A7236001900DC /* GenerateEquatableCommand.swift */,
+				A031BD381E8D1126003235D5 /* GenerateInitCommand.swift */,
 				A0A02CD41E1A739A001900DC /* GenerateHashableCommand.swift */,
 				A0A02CCE1E1A6DE3001900DC /* SelectableGeneratorCommand.swift */,
 				A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */,
@@ -309,14 +321,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A0636FD21E12944B0008CE98 /* Equatable */ = {
+		A0636FD21E12944B0008CE98 /* Generator */ = {
 			isa = PBXGroup;
 			children = (
 				A0A02CC21E1A60EA001900DC /* Generator.swift */,
 				A0636FD31E1294650008CE98 /* EquatableGenerator.swift */,
 				A0A02CC41E1A616C001900DC /* HashableGenerator.swift */,
+				A031BD3A1E8D11D6003235D5 /* InitGenerator.swift */,
 			);
-			name = Equatable;
+			name = Generator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +456,7 @@
 				A0636FDA1E1299A80008CE98 /* GeneratedEquals.txt in Resources */,
 				A0A82AE71E11571200F27EA3 /* interface1.txt in Resources */,
 				A0636FD81E12997C0008CE98 /* EquatableClazz.txt in Resources */,
+				A031BD3E1E8D187C003235D5 /* GeneratedInit.txt in Resources */,
 				A04453D31E156A080063CB99 /* funcMock.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +488,7 @@
 				A04453D11E1567EE0063CB99 /* ClosureParamMocker.swift in Sources */,
 				A08C585B1E13C5AA00034B76 /* ClosureType.swift in Sources */,
 				A0E276541E13F1FC003CC557 /* TypeParser.swift in Sources */,
+				A031BD411E8D19E9003235D5 /* InitGenerator.swift in Sources */,
 				A07FE2791E107AA900809837 /* InterfaceMocker.swift in Sources */,
 				A0A82B1D1E127F1000F27EA3 /* AccessLevel.swift in Sources */,
 				A08C585E1E13CB8300034B76 /* SwiftType.swift in Sources */,
@@ -498,6 +513,7 @@
 				A07FE2771E106CFE00809837 /* FuncMockTests.swift in Sources */,
 				A0A82AEB1E1159C200F27EA3 /* NSObject+file.swift in Sources */,
 				A07FE2821E108D6900809837 /* InterfaceMockerTests.swift in Sources */,
+				A031BD401E8D191E003235D5 /* InitGeneratorTests.swift in Sources */,
 				A039206F1E0F3A7B005A6E89 /* CodeGeneratorTests.swift in Sources */,
 				A0A82B1C1E127E9F00F27EA3 /* AccessLevelTests.swift in Sources */,
 			);
@@ -511,12 +527,14 @@
 				A03920851E0F3A8B005A6E89 /* SourceEditorExtension.swift in Sources */,
 				A0E2766B1E156738003CC557 /* ClosureParamMocker.swift in Sources */,
 				A0A02CD31E1A7236001900DC /* GenerateEquatableCommand.swift in Sources */,
+				A031BD391E8D1126003235D5 /* GenerateInitCommand.swift in Sources */,
 				A0A02CD01E1A6DE3001900DC /* SelectableGeneratorCommand.swift in Sources */,
 				A08C585F1E13CB8300034B76 /* SwiftType.swift in Sources */,
 				A01E46851E0FF94100395AED /* InterfaceDefinition.swift in Sources */,
 				A01E46A01E105EE900395AED /* FuncMocker.swift in Sources */,
 				A03920911E0F3AEF005A6E89 /* String+regexr.swift in Sources */,
 				A08C585C1E13C5AA00034B76 /* ClosureType.swift in Sources */,
+				A031BD3B1E8D11D6003235D5 /* InitGenerator.swift in Sources */,
 				A0A82B1A1E127BEE00F27EA3 /* AccessLevel.swift in Sources */,
 				A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */,
 				A0E276591E141ED8003CC557 /* SwiftParamMocker.swift in Sources */,
