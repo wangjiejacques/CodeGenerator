@@ -31,7 +31,20 @@ struct InitGenerator: Generator {
 
     var lines: [String] {
         var lines = [String]()
-        
+        lines.append("")
+        var initParams = [String]()
+        for varSignature in varSignatures {
+            var type = varSignature.type.name
+            if varSignature.type.isOptional {
+                type = varSignature.type.optionalName
+            }
+            initParams.append("\(varSignature.name): \(type)")
+        }
+        lines.append("\(indentation)init(\(initParams.joined(separator: ", "))) {")
+        for varSignature in varSignatures {
+            lines.append("\(indentation.repeating(2))self.\(varSignature.name) = \(varSignature.name)")
+        }
+        lines.append("\(indentation)}")
         return lines
     }
 }
