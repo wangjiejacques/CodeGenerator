@@ -31,7 +31,7 @@ struct InitGenerator: Generator {
 
     var lines: [String] {
         var lines = [String]()
-       
+        
         return lines
     }
 }

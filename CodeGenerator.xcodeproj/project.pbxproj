@@ -124,7 +124,7 @@
 		A01E469F1E105EE900395AED /* FuncMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncMocker.swift; sourceTree = "<group>"; };
 		A031BD381E8D1126003235D5 /* GenerateInitCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateInitCommand.swift; sourceTree = "<group>"; };
 		A031BD3A1E8D11D6003235D5 /* InitGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitGenerator.swift; sourceTree = "<group>"; };
-		A031BD3D1E8D187C003235D5 /* GeneratedInit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneratedInit.txt; sourceTree = "<group>"; };
+		A031BD3D1E8D187C003235D5 /* GeneratedInit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneratedInit.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A031BD3F1E8D191E003235D5 /* InitGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitGeneratorTests.swift; sourceTree = "<group>"; };
 		A03920591E0F3A7B005A6E89 /* CodeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A039205C1E0F3A7B005A6E89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
