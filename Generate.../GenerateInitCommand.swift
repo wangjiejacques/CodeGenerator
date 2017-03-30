@@ -9,16 +9,13 @@
 import Foundation
 import XcodeKit
 
-//class GenerateInitCommand: NSObject, SelectableGeneratorCommand {
-//    func generator(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) -> Generator {
-//        
-//    }
-//
-//    func generator(with invocation: XCSourceEditorCommandInvocation) -> Generator {
-//
-//    }
-//
-//    func swiftPerform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
-//
-//    }
-//}
+class GenerateInitCommand: NSObject, GenerateAfterVarCommand {
+
+    var generatorType: Generator.Type {
+        return InitGenerator.self
+    }
+
+    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
+        swiftPerform(with: invocation, completionHandler: completionHandler)
+    }
+}

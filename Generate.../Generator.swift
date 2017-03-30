@@ -10,4 +10,8 @@ import Foundation
 
 protocol Generator {
     var lines: [String] { get }
+
+    init(interfaceSignature: InterfaceSignature, indentation: String)
+
+    init(interfaceDefinition: InterfaceDefinition, varSignatures: [VarSignature], indentation: String)
 }

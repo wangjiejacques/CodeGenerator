@@ -28,6 +28,8 @@
 		A031BD3E1E8D187C003235D5 /* GeneratedInit.txt in Resources */ = {isa = PBXBuildFile; fileRef = A031BD3D1E8D187C003235D5 /* GeneratedInit.txt */; };
 		A031BD401E8D191E003235D5 /* InitGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD3F1E8D191E003235D5 /* InitGeneratorTests.swift */; };
 		A031BD411E8D19E9003235D5 /* InitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD3A1E8D11D6003235D5 /* InitGenerator.swift */; };
+		A031BD431E8D1DA6003235D5 /* GenerateAsExtensionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD421E8D1DA6003235D5 /* GenerateAsExtensionCommand.swift */; };
+		A031BD451E8D2B19003235D5 /* GenerateAfterVarCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031BD441E8D2B19003235D5 /* GenerateAfterVarCommand.swift */; };
 		A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039205C1E0F3A7B005A6E89 /* AppDelegate.swift */; };
 		A039205F1E0F3A7B005A6E89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039205E1E0F3A7B005A6E89 /* ViewController.swift */; };
 		A03920611E0F3A7B005A6E89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A03920601E0F3A7B005A6E89 /* Assets.xcassets */; };
@@ -126,6 +128,8 @@
 		A031BD3A1E8D11D6003235D5 /* InitGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitGenerator.swift; sourceTree = "<group>"; };
 		A031BD3D1E8D187C003235D5 /* GeneratedInit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneratedInit.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A031BD3F1E8D191E003235D5 /* InitGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitGeneratorTests.swift; sourceTree = "<group>"; };
+		A031BD421E8D1DA6003235D5 /* GenerateAsExtensionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateAsExtensionCommand.swift; sourceTree = "<group>"; };
+		A031BD441E8D2B19003235D5 /* GenerateAfterVarCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateAfterVarCommand.swift; sourceTree = "<group>"; };
 		A03920591E0F3A7B005A6E89 /* CodeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A039205C1E0F3A7B005A6E89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A039205E1E0F3A7B005A6E89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -301,10 +305,12 @@
 				A01E469E1E105EB400395AED /* Mocker */,
 				A01E46881E0FF95900395AED /* Source */,
 				A03920841E0F3A8B005A6E89 /* SourceEditorExtension.swift */,
-				A0A02CD11E1A7236001900DC /* GenerateEquatableCommand.swift */,
+				A031BD441E8D2B19003235D5 /* GenerateAfterVarCommand.swift */,
 				A031BD381E8D1126003235D5 /* GenerateInitCommand.swift */,
-				A0A02CD41E1A739A001900DC /* GenerateHashableCommand.swift */,
 				A0A02CCE1E1A6DE3001900DC /* SelectableGeneratorCommand.swift */,
+				A031BD421E8D1DA6003235D5 /* GenerateAsExtensionCommand.swift */,
+				A0A02CD11E1A7236001900DC /* GenerateEquatableCommand.swift */,
+				A0A02CD41E1A739A001900DC /* GenerateHashableCommand.swift */,
 				A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */,
 				A03920901E0F3AEF005A6E89 /* String+regexr.swift */,
 				A03920881E0F3A8B005A6E89 /* Info.plist */,
@@ -536,10 +542,12 @@
 				A08C585C1E13C5AA00034B76 /* ClosureType.swift in Sources */,
 				A031BD3B1E8D11D6003235D5 /* InitGenerator.swift in Sources */,
 				A0A82B1A1E127BEE00F27EA3 /* AccessLevel.swift in Sources */,
+				A031BD451E8D2B19003235D5 /* GenerateAfterVarCommand.swift in Sources */,
 				A01E46871E0FF94C00395AED /* FuncSignature.swift in Sources */,
 				A0E276591E141ED8003CC557 /* SwiftParamMocker.swift in Sources */,
 				A0E276531E13F1F6003CC557 /* TypeParser.swift in Sources */,
 				A0E276651E152F17003CC557 /* ParamMockerFactory.swift in Sources */,
+				A031BD431E8D1DA6003235D5 /* GenerateAsExtensionCommand.swift in Sources */,
 				A0636FD41E1294650008CE98 /* EquatableGenerator.swift in Sources */,
 				A01E46781E0FE21500395AED /* InterfaceSignature.swift in Sources */,
 				A01E46831E0FF78300395AED /* InterfaceMocker.swift in Sources */,
