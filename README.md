@@ -89,3 +89,49 @@ extension EquatableClazz: Equatable {
 ```
 
 if you don't want to use all the vars for the Equatable, just select the vars you want and click Generate... -> Equatable
+
+## Generating Hashable
+### Example:
+```swift
+class EquatableClazz {
+    var var0: Int!
+    let var1: String
+    var var2: Bool?
+}
+```
+
+```swift
+extension EquatableClazz: Hashable {
+    static func ==(lhs: EquatableClazz, rhs: EquatableClazz) -> Bool {
+        return lhs.var0 == rhs.var0 && lhs.var1 == rhs.var1 && lhs.var2 == rhs.var2
+    }
+
+    var hashValue: Int {
+        var hashValue = 1
+        let hashableVars: [AnyHashable?] = [var0, var1, var2]
+        hashableVars.forEach {
+            hashValue = 31 * hashValue + ($0?.hashValue ?? 0)
+        }
+        return hashValue
+    }
+}
+```
+
+
+## Generating Init
+### Example:
+```swift
+class EquatableClazz {
+    var var0: Int!
+    let var1: String
+    var var2: Bool?
+
+    init(var0: Int?, var1: String, var2: Bool?) {
+        self.var0 = var0
+        self.var1 = var1
+        self.var2 = var2
+    }
+
+
+}
+```
