@@ -13,6 +13,7 @@ struct InterfaceMocker {
     let variables: [VarSignature]
     let sensibleVariables: [VarSignature]
     let wasCalledVariables: [VarSignature]
+    let wasCalledVariablesTimes: [VarSignature]
     let returnVariables: [VarSignature]
     let funcsMockers: [FuncMocker]
     let indentation: String
@@ -28,6 +29,7 @@ struct InterfaceMocker {
         funcsMockers = interfaceSignature.funcSignatures.map { FuncMocker(funcSignature: $0, indentationWidth: indentationWidth) }
         sensibleVariables = funcsMockers.flatMap { $0.sensibleVariables }
         wasCalledVariables = funcsMockers.map { $0.wasCalledVariable }
+        wasCalledVariablesTimes = funcsMockers.map { $0.wasCalledTimesVariable }
         returnVariables = funcsMockers.flatMap { $0.returnVariable }
     }
 
@@ -37,6 +39,7 @@ struct InterfaceMocker {
         lines += linesOf(variables: variables, varType: { $0.rawType })
         lines += linesOf(variables: sensibleVariables, varType: { $0.rawType })
         lines += linesOf(variables: wasCalledVariables, varType: { $0.optionalType })
+        lines += linesOf(variables: wasCalledVariablesTimes, varType: { $0.rawType })
         lines += linesOf(variables: returnVariables, varType: { $0.forceUnwrappedType })
         funcsMockers.forEach { funcMocker in
             lines.append(contentsOf: funcMocker.lines)
