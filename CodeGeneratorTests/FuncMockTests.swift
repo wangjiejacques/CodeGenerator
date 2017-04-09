@@ -31,6 +31,9 @@ class FuncMockerTests: XCTestCase {
         XCTAssertEqual(funcMocker.sensibleVariables[3], VarSignature(string: " var testSuccessHandlerParam1: Int!"))
         XCTAssertEqual(funcMocker.sensibleVariables[4], VarSignature(string: " var testSuccessHandlerDidReturn: String?"))
         XCTAssertEqual(funcMocker.wasCalledVariable, VarSignature(string: " var testFuncMockWasCalled: Bool?"))
+        var wasCalledTimesVar = VarSignature(declaration: "var", name: "testFuncMockWasCalledTimes", type: "Int", accessLevel: .internal)
+        wasCalledTimesVar.initValue = "0"
+        XCTAssertEqual(funcMocker.wasCalledTimesVariable, wasCalledTimesVar)
         XCTAssertEqual(funcMocker.returnVariable, VarSignature(string: " var testFuncMockShouldReturn: String!"))
 
         var expectedBodyLines = string(from: "funcMock", ofType: "txt").components(separatedBy: "\n")

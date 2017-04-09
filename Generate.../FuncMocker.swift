@@ -28,6 +28,12 @@ struct FuncMocker {
         return VarSignature(declaration: "var", name:  funcSignature.readableName + "WasCalled", type: "Bool?")
     }
 
+    var wasCalledTimesVariable: VarSignature {
+        var varSignature = VarSignature(declaration: "var", name: funcSignature.readableName + "WasCalledTimes", type: "Int")
+        varSignature.initValue = "0"
+        return varSignature
+    }
+
     var returnVariable: VarSignature? {
         if funcSignature.isReturnVoid {
             return nil
