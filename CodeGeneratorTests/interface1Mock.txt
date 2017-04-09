@@ -15,20 +15,28 @@ class PokemonMock: Pokemon {
     var isFlyingWasCalled: Bool?
     var evolveSuccessHandlerWasCalled: Bool?
 
+    var eatFoodWasCalledTimes = 0
+    var drinkWasCalledTimes = 0
+    var isFlyingWasCalledTimes = 0
+    var evolveSuccessHandlerWasCalledTimes = 0
+
     var isFlyingShouldReturn: Bool!
 
     func eat(food: String) {
         eatFood = food
         eatFoodWasCalled = true
+        eatFoodWasCalledTimes += 1
     }
 
     func drink(_ water: String) {
         drinkWater = water
         drinkWasCalled = true
+        drinkWasCalledTimes += 1
     }
 
     func isFlying() -> Bool {
         isFlyingWasCalled = true
+        isFlyingWasCalledTimes += 1
         return isFlyingShouldReturn
     }
 
@@ -40,6 +48,7 @@ class PokemonMock: Pokemon {
             evolveFailureHandlerDidReturn = failureHandler(evolveFailureHandlerParam0)
         }
         evolveSuccessHandlerWasCalled = true
+        evolveSuccessHandlerWasCalledTimes += 1
     }
 
 }
