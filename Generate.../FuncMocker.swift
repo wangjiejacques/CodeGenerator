@@ -45,6 +45,8 @@ struct FuncMocker {
         var bodyLines = paramMockers.flatMap { $0.lines }
         let wasCalledBodyLine = "\(indentation)\(indentation)\(wasCalledVariable.name) = true"
         bodyLines.append(wasCalledBodyLine)
+        let wasCalledTimesBodyLine = "\(indentation)\(indentation)\(wasCalledTimesVariable.name) += 1"
+        bodyLines.append(wasCalledTimesBodyLine)
         if let returnVariable = returnVariable {
             let returnLine = "\(indentation)\(indentation)return \(returnVariable.name)"
             bodyLines.append(returnLine)

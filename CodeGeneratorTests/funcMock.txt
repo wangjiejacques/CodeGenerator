@@ -3,4 +3,5 @@
    testSuccessHandlerDidReturn = successHandler(testSuccessHandlerParam0, testSuccessHandlerParam1)
   }
   testFuncMockWasCalled = true
+  testFuncMockWasCalledTimes += 1
   return testFuncMockShouldReturn
