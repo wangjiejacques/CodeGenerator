@@ -1,3 +1,7 @@
+# Installation
+`git clone https://github.com/WANGjieJacques/CodeGenerator.git`
+The app is in app/CodeGenerator.app.
+
 # CodeGenerator
 CodeGenerator is a Xcode extension for swift code generation.
 
