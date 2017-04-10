@@ -6,15 +6,15 @@
 	<dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		XKW94SMwRVSPmbnFJCUO5uiNfic=
+		s/CYdds8BtuiCy3GliqNVVMRjys=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		KcgyMFWyd7Dr6zvjJIWpNJLBtWM=
+		oiMly6ZTG6JRBNOAOb/hRmBBVrw=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		PGo2wIxm8fOWejeos84O+0RWzL0=
+		FAfSnbBKJ2MuHmoXMJpGAVy7rP4=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
@@ -135,7 +135,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ORrZwENzgsIGgNk82P7Xu6yCmHk=
+			huvMaHc9yAIZ2hUHHG9oUFru2EI=
 			</data>
 			<key>requirement</key>
 			<string>anchor apple generic and identifier "com.wangjie.CodeGenerator.Generate" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "6DJS27PW5B")</string>
@@ -144,21 +144,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			54Wo+1ARN4gno18XHOeUbjKoJXkPovt1+YPYrUAmKEk=
+			4mDz51Uh+o8EFC/aY8VwULo7MOTiImho69fvePcrxLM=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SQmXn5Vzp73mgxPbJKyxZdzvh1jkultlcRpL6Hwx5Xg=
+			+NT2qOcnMgJy7pTXLRpbKkYnup/hpo0tWT4U0jfYb2U=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5Iunfmkm9Mmd/akNCjoEq6/kFhv9aUBDDMCjX2J4RvQ=
+			CC8SaVc8x8lJPT8f3Dsr6US4/EYtpdIl7FoJEP7aU8o=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
