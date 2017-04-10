@@ -36,7 +36,7 @@ extension SelectableGeneratorCommand where Self: NSObject {
         completionHandler(nil)
     }
 
-    func selectedLines(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) -> [String] {
+    private func selectedLines(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) -> [String] {
         let selectedColumns = selections.map { $0.start.line...$0.end.line }.flatMap { $0 }
         var selectedLines: [String] = []
         invocation.buffer.lines.enumerated().forEach { index, line in
