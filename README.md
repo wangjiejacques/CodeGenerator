@@ -139,3 +139,28 @@ class EquatableClazz {
 
 }
 ```
+
+## Generating NSCoding
+### Example:
+```swift
+class EquatableClazz {
+    var var0: Int
+    let var1: String
+    var var2: Bool?
+
+    required init?(coder aDecoder: NSCoder) {
+        guard let var1 = aDecoder.decodeObject(forKey: "var1") as? String else { return nil }
+        var0 = aDecoder.decodeInteger(forKey: "var0")
+        self.var1 = var1
+        if aDecoder.containsValue(forKey: "var2") {
+            var2 = aDecoder.decodeBool(forKey: "var2")
+        }
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(var0, forKey: "var0")
+        aCoder.encode(var1, forKey: "var1")
+        aCoder.encode(var2, forKey: "var2")
+    }
+}
+```
