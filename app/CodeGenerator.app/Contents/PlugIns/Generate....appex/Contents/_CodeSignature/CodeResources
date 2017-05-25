@@ -3,26 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>files</key>
-	<dict>
-		<key>Resources/archived-expanded-entitlements.xcent</key>
-		<data>
-		EPWnZClCepLXTlRBQz8jOgCUyHo=
-		</data>
-	</dict>
+	<dict/>
 	<key>files2</key>
-	<dict>
-		<key>Resources/archived-expanded-entitlements.xcent</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EPWnZClCepLXTlRBQz8jOgCUyHo=
-			</data>
-			<key>hash2</key>
-			<data>
-			t0bHSyAeavTghk+9H09in5YVan7EtyCLyZXQpQibtZI=
-			</data>
-		</dict>
-	</dict>
+	<dict/>
 	<key>rules</key>
 	<dict>
 		<key>^Resources/</key>

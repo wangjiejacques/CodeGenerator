@@ -9,7 +9,7 @@
 import Foundation
 import XcodeKit
 
-class GenerateCodingCommand: NSObject, GenerateAsExtensionCommand {
+class GenerateCodingCommand: NSObject, GenerateAfterVarCommand {
 
     var generatorType: Generator.Type {
         return CodingGenerator.self
