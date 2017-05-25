@@ -55,6 +55,7 @@
 		A083A3861ED45DD900C9B024 /* CodingGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A083A3841ED45DD500C9B024 /* CodingGenerator.swift */; };
 		A083A3B31ED6DC2400C9B024 /* GeneratedNSCoder.txt in Resources */ = {isa = PBXBuildFile; fileRef = A083A3B21ED6DC2400C9B024 /* GeneratedNSCoder.txt */; };
 		A083A3B51ED6E17D00C9B024 /* NSCodingGeneratorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A083A3B41ED6E17D00C9B024 /* NSCodingGeneratorTest.swift */; };
+		A083A3B71ED6EA9000C9B024 /* GenerateCodingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A083A3B61ED6EA9000C9B024 /* GenerateCodingCommand.swift */; };
 		A08C585B1E13C5AA00034B76 /* ClosureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C585A1E13C5AA00034B76 /* ClosureType.swift */; };
 		A08C585C1E13C5AA00034B76 /* ClosureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C585A1E13C5AA00034B76 /* ClosureType.swift */; };
 		A08C585E1E13CB8300034B76 /* SwiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C585D1E13CB8300034B76 /* SwiftType.swift */; };
@@ -160,6 +161,7 @@
 		A083A3841ED45DD500C9B024 /* CodingGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingGenerator.swift; sourceTree = "<group>"; };
 		A083A3B21ED6DC2400C9B024 /* GeneratedNSCoder.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneratedNSCoder.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A083A3B41ED6E17D00C9B024 /* NSCodingGeneratorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCodingGeneratorTest.swift; sourceTree = "<group>"; };
+		A083A3B61ED6EA9000C9B024 /* GenerateCodingCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateCodingCommand.swift; sourceTree = "<group>"; };
 		A08C585A1E13C5AA00034B76 /* ClosureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureType.swift; sourceTree = "<group>"; };
 		A08C585D1E13CB8300034B76 /* SwiftType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftType.swift; sourceTree = "<group>"; };
 		A0A02CC21E1A60EA001900DC /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				A031BD421E8D1DA6003235D5 /* GenerateAsExtensionCommand.swift */,
 				A0A02CD11E1A7236001900DC /* GenerateEquatableCommand.swift */,
 				A0A02CD41E1A739A001900DC /* GenerateHashableCommand.swift */,
+				A083A3B61ED6EA9000C9B024 /* GenerateCodingCommand.swift */,
 				A03920861E0F3A8B005A6E89 /* GenerateMockCommand.swift */,
 				A03920901E0F3AEF005A6E89 /* String+regexr.swift */,
 				A03920881E0F3A8B005A6E89 /* Info.plist */,
@@ -544,6 +547,7 @@
 			files = (
 				A01E46931E102CBB00395AED /* VarSignature.swift in Sources */,
 				A03920851E0F3A8B005A6E89 /* SourceEditorExtension.swift in Sources */,
+				A083A3B71ED6EA9000C9B024 /* GenerateCodingCommand.swift in Sources */,
 				A0E2766B1E156738003CC557 /* ClosureParamMocker.swift in Sources */,
 				A0A02CD31E1A7236001900DC /* GenerateEquatableCommand.swift in Sources */,
 				A031BD391E8D1126003235D5 /* GenerateInitCommand.swift in Sources */,
