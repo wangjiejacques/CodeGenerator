@@ -420,7 +420,7 @@
 				TargetAttributes = {
 					A03920581E0F3A7B005A6E89 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 6DJS27PW5B;
+						DevelopmentTeam = 5C59L2E3AR;
 						ProvisioningStyle = Automatic;
 					};
 					A03920691E0F3A7B005A6E89 = {
@@ -431,7 +431,7 @@
 					};
 					A039207C1E0F3A8B005A6E89 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 6DJS27PW5B;
+						DevelopmentTeam = 5C59L2E3AR;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -702,7 +702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6DJS27PW5B;
+				DEVELOPMENT_TEAM = 5C59L2E3AR;
 				INFOPLIST_FILE = CodeGenerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjie.CodeGenerator;
@@ -718,7 +718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6DJS27PW5B;
+				DEVELOPMENT_TEAM = 5C59L2E3AR;
 				INFOPLIST_FILE = CodeGenerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjie.CodeGenerator;
@@ -767,7 +767,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Generate.../Generate___.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6DJS27PW5B;
+				DEVELOPMENT_TEAM = 5C59L2E3AR;
 				INFOPLIST_FILE = Generate.../Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -784,7 +784,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Generate.../Generate___.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6DJS27PW5B;
+				DEVELOPMENT_TEAM = 5C59L2E3AR;
 				INFOPLIST_FILE = Generate.../Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;

@@ -90,7 +90,7 @@ private extension VarSignature {
     }
 
     var decodeName: String {
-        let types = ["Bool": "decodeBool", "Int32": "decodeInt32", "Int64": "decodeInt64", "Float": "decodeFloat", "Double": "decodeDouble", "Int": "decodeInteger"]
+        let types = ["Bool": "decodeBool", "Int32": "decodeInt32", "Int64": "decodeInt64", "Float": "decodeFloat", "Double": "decodeDouble", "TimeInterval": "decodeDouble", "Int": "decodeInteger"]
         guard let _ = types.index(forKey: type.unwrappedName) else {
             return "decodeObject(forKey: \"\(name)\") as? \(type.unwrappedName)"
         }
