@@ -8,6 +8,9 @@
 7. Go to System Preferences -> Extensions -> Xcode Source Editor and enable the CodeGenerator extension
 8. The menu-item should now be available from Xcode's Editor menu
 
+# Uninstallation
+1. Remove the App, restart Xcode.
+
 # CodeGenerator
 CodeGenerator is a Xcode extension for swift code generation.
 
