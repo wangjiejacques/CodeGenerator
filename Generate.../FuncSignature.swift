@@ -26,16 +26,18 @@ struct FuncSignature {
         return returnType == SwiftType.Void
     }
 
-    init(string: String) {
+    init(string: String) throws {
         guard let nameResult = "func ([\\S]*)\\(".firstMatch(in: string) else {
-            preconditionFailure(wrongFuncFormat)
+            throw NSError.sourceInvalid
         }
         name = string.substring(with: nameResult.rangeAt(1))
 
-        let paramsRange = string.paramsRange
+        let paramsRange = try string.paramsRange()
         let rawParams = string.substring(with: paramsRange)
         let paramsString = rawParams.paramsStrings
-        params = paramsString.map { FuncParam(string: $0.trimed) }.flatMap { $0 }
+        params = paramsString.map { paramString in
+            try? FuncParam(string: paramString.trimed)
+        }.flatMap { $0 }
 
         let stringAfterLastParam = string.substring(from: string.index(string.startIndex, offsetBy: paramsRange.toRange()!.upperBound))
 
@@ -49,7 +51,7 @@ struct FuncSignature {
 }
 
 private extension String {
-    var paramsRange: NSRange {
+    func paramsRange() throws -> NSRange {
         var startParenthesisCount = 0
         var endParenthesisCount = 0
         var paramsStartIndex: Int!
@@ -72,7 +74,7 @@ private extension String {
         }
 
         guard var startIndex = paramsStartIndex, let endIndex = paramsEndIndex else {
-            preconditionFailure(wrongFuncFormat)
+            throw NSError.sourceInvalid
         }
         startIndex += 1
         return NSRange(location: startIndex, length: endIndex-startIndex)

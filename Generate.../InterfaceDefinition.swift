@@ -14,7 +14,7 @@ struct InterfaceDefinition {
     let type: String
     let lineIndex: Int
 
-    init(lines: [String]) {
+    init(lines: [String]) throws {
         for (index, line) in lines.enumerated() {
             guard let definition = "(protocol|class|extension|struct) ([A-Za-z]*)".firstMatch(in: line) else {
                 continue
@@ -24,7 +24,7 @@ struct InterfaceDefinition {
             lineIndex = index
             return
         }
-        preconditionFailure("interface format incorrect")
+        throw NSError.sourceInvalid
     }
 }
 

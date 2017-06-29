@@ -23,7 +23,7 @@ class InitGeneratorTests: XCTestCase {
 
     func testInitGenerator() {
         let source = string(from: "EquatableClazz", ofType: "txt")
-        let interface = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
+        let interface = try! InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
         let initGenerator = InitGenerator(interfaceSignature: interface, indentation: "    ")
 
         var expectedHashSource = string(from: "GeneratedInit", ofType: "txt").components(separatedBy: "\n")

@@ -21,7 +21,7 @@ class FuncMockerTests: XCTestCase {
     }
 
     func testFunMock() {
-        let funcSignature = FuncSignature(string: "func test(funcMock: String, successHandler: @escaping (String, Int?) -> String?) -> String {")
+        let funcSignature = try! FuncSignature(string: "func test(funcMock: String, successHandler: @escaping (String, Int?) -> String?) -> String {")
         let funcMocker = FuncMocker(funcSignature: funcSignature, indentationWidth: 1)
         XCTAssertEqual(funcMocker.sensibleVariables.count, 5)
         XCTAssertEqual(funcMocker.sensibleVariables[0], VarSignature(string: " var testFuncMock: String?"))
@@ -45,13 +45,13 @@ class FuncMockerTests: XCTestCase {
     }
 
     func testFunReturnVoid() {
-        let funcSignature = FuncSignature(string: "func test(funcMock: String, successHandler: @escaping (String, Int?) -> String?)")
+        let funcSignature = try! FuncSignature(string: "func test(funcMock: String, successHandler: @escaping (String, Int?) -> String?)")
         let funcMocker = FuncMocker(funcSignature: funcSignature, indentationWidth: 1)
         XCTAssertNil(funcMocker.returnVariable)
     }
 
     func testFuncMocker1() {
-        let funcSignature = FuncSignature(string: "func func3() {")
+        let funcSignature = try! FuncSignature(string: "func func3() {")
         let funcMocker = FuncMocker(funcSignature: funcSignature, indentationWidth: 1)
         XCTAssertEqual(funcMocker.sensibleVariables.count, 0)
         XCTAssertEqual(funcMocker.wasCalledVariable, VarSignature(declaration: "var", name: "func3WasCalled", type: "Bool?"))

@@ -24,7 +24,7 @@ class InterfaceMockerTests: XCTestCase {
 
     func testInterface() {
         let interfaceSource = string(from: "interface1", ofType: "txt")
-        let interface = InterfaceSignature(interfaceSource: interfaceSource, lines: interfaceSource.components(separatedBy: "\n"))
+        let interface = try! InterfaceSignature(interfaceSource: interfaceSource, lines: interfaceSource.components(separatedBy: "\n"))
         let interfaceMocker = InterfaceMocker(interfaceSignature: interface, indentationWidth: 4)
 
         let mockSource = string(from: "interface1Mock", ofType: "txt")

@@ -16,22 +16,22 @@ struct InterfaceSignature {
     var funcSignatures: [FuncSignature] = []
     var varSignatures: [VarSignature] = []
 
-    init(interfaceSource: String, lines: [String]) {
+    init(interfaceSource: String, lines: [String]) throws {
         self.interfaceSource = interfaceSource
         self.lines = lines
-        definition = InterfaceDefinition(lines: lines)
-        initFuncSignatures()
+        definition = try InterfaceDefinition(lines: lines)
+        try initFuncSignatures()
         initVarSignatures()
     }
 
-    mutating func initFuncSignatures() {
+    mutating func initFuncSignatures() throws {
         var funcSignatures: [String] = []
         for line in lines {
             guard let _ = "func .*?\\(".firstMatch(in: line) else { continue }
             let funcSignature = line.replacingOccurrences(of: "{", with: "").replacingOccurrences(of: "\n", with: "")
             funcSignatures.append(funcSignature)
         }
-        self.funcSignatures = funcSignatures.map { FuncSignature(string: $0) }
+        self.funcSignatures = try funcSignatures.map { try FuncSignature(string: $0) }
     }
 
     mutating func initVarSignatures() {

@@ -22,7 +22,7 @@ class HashableGeneratorTest: XCTestCase {
 
     func testEquatableGenerator() {
         let source = string(from: "EquatableClazz", ofType: "txt")
-        let interface = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
+        let interface = try! InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
         let hashableeGenerator = HashableGenerator(interfaceSignature: interface, indentation: "    ")
 
         var expectedHashSource = string(from: "GeneratedHash", ofType: "txt").components(separatedBy: "\n")

@@ -23,7 +23,7 @@ class NSCodingGeneratorTest: XCTestCase {
 
     func testNSCodingGenerator() {
         let source = string(from: "EquatableClazz", ofType: "txt")
-        let interface = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
+        let interface = try! InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
         let codingGenerator = CodingGenerator(interfaceSignature: interface, indentation: "    ")
 
         var expectedCodingSource = string(from: "GeneratedNSCoder", ofType: "txt").components(separatedBy: "\n")

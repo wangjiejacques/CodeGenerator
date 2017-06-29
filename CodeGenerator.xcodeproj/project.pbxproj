@@ -47,6 +47,8 @@
 		A0636FD81E12997C0008CE98 /* EquatableClazz.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0636FD71E12997C0008CE98 /* EquatableClazz.txt */; };
 		A0636FDA1E1299A80008CE98 /* GeneratedEquals.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0636FD91E1299A80008CE98 /* GeneratedEquals.txt */; };
 		A0636FDB1E129B3E0008CE98 /* EquatableGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0636FD31E1294650008CE98 /* EquatableGenerator.swift */; };
+		A071EB691F04FC86007ACA6E /* SourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071EB681F04FC86007ACA6E /* SourceError.swift */; };
+		A071EB6A1F04FC86007ACA6E /* SourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071EB681F04FC86007ACA6E /* SourceError.swift */; };
 		A07FE2771E106CFE00809837 /* FuncMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FE2761E106CFE00809837 /* FuncMockTests.swift */; };
 		A07FE2781E106D5C00809837 /* FuncMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E469F1E105EE900395AED /* FuncMocker.swift */; };
 		A07FE2791E107AA900809837 /* InterfaceMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E46821E0FF78300395AED /* InterfaceMocker.swift */; };
@@ -156,6 +158,7 @@
 		A0636FD51E1299100008CE98 /* EquatableGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableGeneratorTests.swift; sourceTree = "<group>"; };
 		A0636FD71E12997C0008CE98 /* EquatableClazz.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EquatableClazz.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0636FD91E1299A80008CE98 /* GeneratedEquals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneratedEquals.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A071EB681F04FC86007ACA6E /* SourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceError.swift; sourceTree = "<group>"; };
 		A07FE2761E106CFE00809837 /* FuncMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncMockTests.swift; sourceTree = "<group>"; };
 		A07FE2811E108D6900809837 /* InterfaceMockerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceMockerTests.swift; sourceTree = "<group>"; };
 		A083A3841ED45DD500C9B024 /* CodingGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingGenerator.swift; sourceTree = "<group>"; };
@@ -312,6 +315,7 @@
 		A03920811E0F3A8B005A6E89 /* Generate... */ = {
 			isa = PBXGroup;
 			children = (
+				A071EB681F04FC86007ACA6E /* SourceError.swift */,
 				A0636FD21E12944B0008CE98 /* Generator */,
 				A01E469E1E105EB400395AED /* Mocker */,
 				A01E46881E0FF95900395AED /* Source */,
@@ -502,6 +506,7 @@
 				A01E46811E0FE6DA00395AED /* String+regexr.swift in Sources */,
 				A01E468C1E1010BE00395AED /* FuncSignature.swift in Sources */,
 				A01E468B1E1010BB00395AED /* InterfaceDefinition.swift in Sources */,
+				A071EB691F04FC86007ACA6E /* SourceError.swift in Sources */,
 				A039205D1E0F3A7B005A6E89 /* AppDelegate.swift in Sources */,
 				A01E46801E0FE6CB00395AED /* InterfaceSignature.swift in Sources */,
 				A0E276671E1542DC003CC557 /* ParamMockerFactory.swift in Sources */,
@@ -567,6 +572,7 @@
 				A0E276651E152F17003CC557 /* ParamMockerFactory.swift in Sources */,
 				A031BD431E8D1DA6003235D5 /* GenerateAsExtensionCommand.swift in Sources */,
 				A0636FD41E1294650008CE98 /* EquatableGenerator.swift in Sources */,
+				A071EB6A1F04FC86007ACA6E /* SourceError.swift in Sources */,
 				A01E46781E0FE21500395AED /* InterfaceSignature.swift in Sources */,
 				A01E46831E0FF78300395AED /* InterfaceMocker.swift in Sources */,
 				A0A02CC51E1A616C001900DC /* HashableGenerator.swift in Sources */,

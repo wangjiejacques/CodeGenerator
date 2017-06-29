@@ -23,7 +23,7 @@ class EquatableGeneratorTests: XCTestCase {
 
     func testEquatableGenerator() {
         let source = string(from: "EquatableClazz", ofType: "txt")
-        let interface = InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
+        let interface = try! InterfaceSignature(interfaceSource: source, lines: source.components(separatedBy: "\n"))
         let equatableGenerator = EquatableGenerator(interfaceSignature: interface, indentation: "    ")
 
         var expectedEqualsSource = string(from: "GeneratedEquals", ofType: "txt").components(separatedBy: "\n")

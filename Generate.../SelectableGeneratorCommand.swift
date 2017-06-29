@@ -13,27 +13,31 @@ protocol SelectableGeneratorCommand: XCSourceEditorCommand {
 
     var generatorType: Generator.Type { get }
 
-    func generator(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) -> Generator
+    func generator(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) throws -> Generator
 
-    func generator(with invocation: XCSourceEditorCommandInvocation) -> Generator
+    func generator(with invocation: XCSourceEditorCommandInvocation) throws -> Generator
 
     func swiftPerform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void)
 
-    func generateForAllVariables(with invocation: XCSourceEditorCommandInvocation)
+    func generateForAllVariables(with invocation: XCSourceEditorCommandInvocation) throws
 
-    func generateForSelectedVariables(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange])
+    func generateForSelectedVariables(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) throws
 }
 
 extension SelectableGeneratorCommand where Self: NSObject {
     func swiftPerform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         var selections = invocation.buffer.selections.map { $0 as! XCSourceTextRange }
         selections = selections.filter { $0.start != $0.end }
-        if selections.isEmpty {
-            generateForAllVariables(with: invocation)
-        } else {
-            generateForSelectedVariables(with: invocation, selections: selections)
+        do {
+            if selections.isEmpty {
+                try generateForAllVariables(with: invocation)
+            } else {
+                try generateForSelectedVariables(with: invocation, selections: selections)
+            }
+            completionHandler(nil)
+        } catch {
+            completionHandler(error)
         }
-        completionHandler(nil)
     }
 
     private func selectedLines(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) -> [String] {
@@ -47,13 +51,13 @@ extension SelectableGeneratorCommand where Self: NSObject {
         return selectedLines
     }
 
-    func generator(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) -> Generator {
+    func generator(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) throws -> Generator {
         let selectedVars = selectedLines(with: invocation, selections: selections).flatMap { VarSignature(string: $0) }
-        return generatorType.init(interfaceDefinition: interfaceSignature(of: invocation).definition, varSignatures: selectedVars, indentation: " ".repeating(invocation.buffer.indentationWidth))
+        return generatorType.init(interfaceDefinition: try interfaceSignature(of: invocation).definition, varSignatures: selectedVars, indentation: " ".repeating(invocation.buffer.indentationWidth))
     }
 
-    func generator(with invocation: XCSourceEditorCommandInvocation) -> Generator {
-        return generatorType.init(interfaceSignature: interfaceSignature(of: invocation), indentation: " ".repeating(invocation.buffer.indentationWidth))
+    func generator(with invocation: XCSourceEditorCommandInvocation) throws -> Generator {
+        return generatorType.init(interfaceSignature: try interfaceSignature(of: invocation), indentation: " ".repeating(invocation.buffer.indentationWidth))
     }
 }
 
@@ -63,6 +67,6 @@ extension XCSourceTextPosition: Equatable {
     }
 }
 
-func interfaceSignature(of invocation: XCSourceEditorCommandInvocation) -> InterfaceSignature {
-    return InterfaceSignature(interfaceSource: invocation.buffer.completeBuffer, lines: invocation.buffer.lines.map { $0 as! String })
+func interfaceSignature(of invocation: XCSourceEditorCommandInvocation) throws -> InterfaceSignature {
+    return try InterfaceSignature(interfaceSource: invocation.buffer.completeBuffer, lines: invocation.buffer.lines.map { $0 as! String })
 }

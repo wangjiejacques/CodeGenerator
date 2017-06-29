@@ -14,12 +14,12 @@ protocol GenerateAfterVarCommand: SelectableGeneratorCommand {
 }
 
 extension GenerateAfterVarCommand {
-    func generateForAllVariables(with invocation: XCSourceEditorCommandInvocation) {
-        addLinesAfterVariables(invocation: invocation, lines: generator(with: invocation).lines)
+    func generateForAllVariables(with invocation: XCSourceEditorCommandInvocation) throws {
+        addLinesAfterVariables(invocation: invocation, lines: try generator(with: invocation).lines)
     }
 
-    func generateForSelectedVariables(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) {
-        addLinesAfterVariables(invocation: invocation, lines: generator(with: invocation, selections: selections).lines)
+    func generateForSelectedVariables(with invocation: XCSourceEditorCommandInvocation, selections: [XCSourceTextRange]) throws {
+        addLinesAfterVariables(invocation: invocation, lines: try generator(with: invocation, selections: selections).lines)
     }
 
     private func addLinesAfterVariables(invocation: XCSourceEditorCommandInvocation, lines: [String]) {

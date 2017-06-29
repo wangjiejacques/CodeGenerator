@@ -21,10 +21,10 @@ struct FuncParam {
         return label
     }
 
-    init(string: String) {
+    init(string: String) throws {
         let comps = string.components(separatedBy: ":")
         guard comps.count == 2 else {
-            preconditionFailure(wrongParamFormat)
+            throw NSError.sourceInvalid
         }
         type = TypeParser.parse(string: comps[1].trimed)
 
@@ -40,7 +40,7 @@ struct FuncParam {
             name = labelNameComps[1]
             return
         }
-        preconditionFailure(wrongParamFormat)
+        throw NSError.sourceInvalid
     }
 
     init(label: String, name: String, type: String) {
