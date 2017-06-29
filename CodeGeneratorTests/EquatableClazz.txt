@@ -1,5 +1,5 @@
 class EquatableClazz {
     var var0: TimeInterval
-    let var1: String
+    let var1: [String]
     var var2: Bool?
 }

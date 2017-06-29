@@ -1,6 +1,6 @@
 
     required init?(coder aDecoder: NSCoder) {
-        guard let var1 = aDecoder.decodeObject(forKey: "var1") as? String else { return nil }
+        guard let var1 = aDecoder.decodeObject(forKey: "var1") as? [String] else { return nil }
         var0 = aDecoder.decodeDouble(forKey: "var0")
         self.var1 = var1
         if aDecoder.containsValue(forKey: "var2") {

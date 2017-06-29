@@ -39,6 +39,14 @@ class SwiftTypeTests: XCTestCase {
         XCTAssertEqual(type2.optionalName, "String?")
     }
 
+    func testArrayType() {
+        let arrayType = TypeParser.parse(string: "[String]?")
+        XCTAssertEqual(arrayType.name, "[String]?")
+        XCTAssertEqual(arrayType.unwrappedName, "[String]")
+        XCTAssertEqual(arrayType is ClosureType, false)
+        XCTAssertTrue(arrayType.isOptional)
+    }
+
     func testType3() {
         let type3 = TypeParser.parse(string: "@escaping @autoclosure (String?) -> String?")
         XCTAssertEqual(type3.name, "(String?) -> String?")
