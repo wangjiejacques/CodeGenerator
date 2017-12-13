@@ -11,7 +11,7 @@ import Foundation
 extension NSObject {
 
     func string(from path: String, ofType type: String) -> String {
-        let path = Bundle(for: type(of: self)).path(forResource: path, ofType: type)!
+        let path = Bundle(for: Swift.type(of: self)).path(forResource: path, ofType: type)!
         return try! String(contentsOfFile: path)
     }
 }

@@ -19,8 +19,8 @@ struct InterfaceDefinition {
             guard let definition = "(protocol|class|extension|struct) ([A-Za-z]*)".firstMatch(in: line) else {
                 continue
             }
-            name = line.substring(with: definition.rangeAt(2))
-            type =  line.substring(with: definition.rangeAt(1))
+            name = line.substring(with: definition.range(at: 2))
+            type =  line.substring(with: definition.range(at: 1))
             lineIndex = index
             return
         }

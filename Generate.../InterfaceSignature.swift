@@ -41,8 +41,10 @@ struct InterfaceSignature {
             if let firstTwoIndex = line.trimed.index(line.trimed.startIndex, offsetBy: 2, limitedBy: line.trimed.endIndex),line.trimed.substring(to: firstTwoIndex) == "//" {
                 continue
             }
-            openBraceCount += line.characters.filter { $0 == "{" }.count
-            openBraceCount -= line.characters.filter { $0 == "}" }.count
+            let lineOpen = line.filter { $0 == "{" }
+            openBraceCount += lineOpen.count
+            let lineClose = line.filter { $0 == "}" }
+            openBraceCount -= lineClose.count
             guard openBraceCount == 1 else { continue }
             guard let varSignature = VarSignature(string: line) else { continue }
             varSignatures.append(varSignature)

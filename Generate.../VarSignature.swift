@@ -24,9 +24,9 @@ struct VarSignature {
         guard let result = "(var|let)\\s*(\\S*)\\s*:\\s*(\\S[^\\{]*[^ \\{])".firstMatch(in: string) else {
             return nil
         }
-        declaration = string.substring(with: result.rangeAt(1))
-        name = string.substring(with: result.rangeAt(2))
-        let typeString = string.substring(with: result.rangeAt(3))
+        declaration = string.substring(with: result.range(at: 1))
+        name = string.substring(with: result.range(at: 2))
+        let typeString = string.substring(with: result.range(at: 3))
         type = TypeParser.parse(string: typeString)
         accessLevel =  AccessLevel(string: string)
     }

@@ -19,7 +19,7 @@ enum AccessLevel: String {
         let allLevels: [AccessLevel] = [.open, .public, .internal, .fileprivate, .private]
         for level in allLevels {
             if let result = " (\(level)) ".firstMatch(in: string) {
-                self.init(rawValue: string.substring(with: result.rangeAt(1)))!
+                self.init(rawValue: string.substring(with: result.range(at: 1)))!
                 return
             }
         }

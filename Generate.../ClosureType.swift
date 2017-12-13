@@ -21,7 +21,7 @@ class ClosureType: SwiftType {
     override var unwrappedName: String {
         if isOptional {
             let result = "^\\((.*)\\)[?!]$".firstMatch(in: name)!
-            return name.substring(with: result.rangeAt(1))
+            return name.substring(with: result.range(at: 1))
         }
         return name
     }
@@ -43,7 +43,7 @@ class ClosureType: SwiftType {
     var inTypes: [SwiftType] {
         let rawInTypes = unwrappedName.components(separatedBy: "->")[0]
         guard let result = "\\((.*)\\)".firstMatch(in: rawInTypes) else { return [] }
-        let inTypesString = rawInTypes.substring(with: result.rangeAt(1))
+        let inTypesString = rawInTypes.substring(with: result.range(at: 1))
         if inTypesString.isEmpty {
             return []
         }

@@ -30,7 +30,7 @@ struct FuncSignature {
         guard let nameResult = "func ([\\S]*)\\(".firstMatch(in: string) else {
             throw NSError.sourceInvalid
         }
-        name = string.substring(with: nameResult.rangeAt(1))
+        name = string.substring(with: nameResult.range(at: 1))
 
         let paramsRange = try string.paramsRange()
         let rawParams = string.substring(with: paramsRange)
@@ -45,7 +45,7 @@ struct FuncSignature {
             returnType = SwiftType.Void
             return
         }
-        let returnTypeString = stringAfterLastParam.substring(with: returnTypeResult.rangeAt(1)).replacingOccurrences(of: "{", with: "").trimed
+        let returnTypeString = stringAfterLastParam.substring(with: returnTypeResult.range(at: 1)).replacingOccurrences(of: "{", with: "").trimed
         returnType = TypeParser.parse(string: returnTypeString)
     }
 }
