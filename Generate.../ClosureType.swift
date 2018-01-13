@@ -31,12 +31,12 @@ class ClosureType: SwiftType {
     }
 
     override var isOptional: Bool {
-        guard name.characters.count > 7 else { return false }
+        guard name.count > 7 else { return false }
         let comps = name.components(separatedBy: "->")
         guard comps.count == 2 else { return false }
         let leftParenthesesCount = comps[1].count(of: "(")
         let rightParentesescount = comps[1].count(of: ")")
-        let lastTwo = name.substring(from: name.index(name.endIndex, offsetBy: -2))
+        let lastTwo = name.suffix(2)
         return [")?", ")!"].contains(lastTwo) && leftParenthesesCount != rightParentesescount
     }
 

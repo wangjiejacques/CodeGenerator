@@ -11,12 +11,12 @@ import Foundation
 extension String {
     func matches(in string: String) -> [NSTextCheckingResult] {
         let regex = try! NSRegularExpression(pattern: self)
-        return regex.matches(in: string, options: [], range: NSRange(0 ..< string.characters.count))
+        return regex.matches(in: string, options: [], range: NSRange(0 ..< string.count))
     }
 
     func firstMatch(in string: String) -> NSTextCheckingResult? {
         let regex = try! NSRegularExpression(pattern: self)
-        return regex.firstMatch(in: string, options: [], range: NSRange(0 ..< string.characters.count))
+        return regex.firstMatch(in: string, options: [], range: NSRange(0 ..< string.count))
     }
 
     func substring(with range: NSRange) -> String {
@@ -37,7 +37,7 @@ extension String {
 
     func count(of char: Character) -> Int {
         var count = 0
-        characters.forEach { c in
+        forEach { c in
             if c == char {
                 count += 1
             }
@@ -51,9 +51,6 @@ extension String {
 
     /// Capitalized the first letter
     var Capitalized: String {
-        guard !isEmpty else { return "" }
-        
-        let range = Range(uncheckedBounds: (lower: startIndex, upper: index(after: startIndex)))
-        return replacingCharacters(in: range, with: substring(with: range).uppercased())
+        return prefix(1).uppercased() + dropFirst()
     }
 }

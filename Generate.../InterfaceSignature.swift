@@ -38,7 +38,7 @@ struct InterfaceSignature {
         var openBraceCount = 0
         var varSignatures: [VarSignature] = []
         for line in lines {
-            if let firstTwoIndex = line.trimed.index(line.trimed.startIndex, offsetBy: 2, limitedBy: line.trimed.endIndex),line.trimed.substring(to: firstTwoIndex) == "//" {
+            if line.trimed.prefix(2) == "//" {
                 continue
             }
             let lineOpen = line.filter { $0 == "{" }

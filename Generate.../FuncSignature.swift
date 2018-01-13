@@ -33,13 +33,12 @@ struct FuncSignature {
         name = string.substring(with: nameResult.range(at: 1))
 
         let paramsRange = try string.paramsRange()
-        let rawParams = string.substring(with: paramsRange)
+        let rawParams = String(string[paramsRange])
         let paramsString = rawParams.paramsStrings
         params = paramsString.map { paramString in
             try? FuncParam(string: paramString.trimed)
         }.flatMap { $0 }
-
-        let stringAfterLastParam = string.substring(from: string.index(string.startIndex, offsetBy: paramsRange.toRange()!.upperBound))
+        let stringAfterLastParam = String(string[paramsRange.upperBound...])
 
         guard let returnTypeResult = "->(.*)$".firstMatch(in: stringAfterLastParam) else {
             returnType = SwiftType.Void
@@ -51,12 +50,12 @@ struct FuncSignature {
 }
 
 private extension String {
-    func paramsRange() throws -> NSRange {
+    func paramsRange() throws -> Range<String.Index> {
         var startParenthesisCount = 0
         var endParenthesisCount = 0
         var paramsStartIndex: Int!
         var paramsEndIndex: Int!
-        characters.enumerated().forEach { index, char in
+        enumerated().forEach { index, char in
             if char == "(" {
                 startParenthesisCount += 1
                 if paramsStartIndex == nil {
@@ -73,18 +72,20 @@ private extension String {
             }
         }
 
-        guard var startIndex = paramsStartIndex, let endIndex = paramsEndIndex else {
+        guard var startIntIndex = paramsStartIndex, let endIntIndex = paramsEndIndex else {
             throw NSError.sourceInvalid
         }
-        startIndex += 1
-        return NSRange(location: startIndex, length: endIndex-startIndex)
+        startIntIndex += 1
+        let startIndex = index(self.startIndex, offsetBy: startIntIndex)
+        let endIndex = index(self.startIndex, offsetBy: endIntIndex)
+        return startIndex..<endIndex
     }
 
     var paramsStrings: [String] {
         var parenthesisDiff = 0
         var paramEnd = 0
         var paramsString = [String]()
-        characters.enumerated().forEach { index, character in
+        enumerated().forEach { index, character in
             if character == "(" {
                 parenthesisDiff += 1
             }
@@ -95,11 +96,11 @@ private extension String {
                 let start = self.index(startIndex, offsetBy: paramEnd)
                 let end = self.index(startIndex, offsetBy: index)
                 paramEnd = index + 1
-                paramsString.append(substring(with: Range(uncheckedBounds: (lower: start, upper: end))))
+                paramsString.append(String(self[start..<end]))
             }
         }
         let lastStart = index(startIndex, offsetBy: paramEnd)
-        paramsString.append(substring(with: Range(uncheckedBounds: (lower: lastStart, upper: endIndex))))
+        paramsString.append(String(self[lastStart..<endIndex]))
         return paramsString.filter { !$0.isEmpty }
     }
 }

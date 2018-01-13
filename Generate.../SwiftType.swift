@@ -28,7 +28,7 @@ class SwiftType {
 
     var unwrappedName: String {
         if isOptional {
-            return name.substring(to: name.index(before: name.endIndex))
+            return String(name[..<name.index(before: name.endIndex)])
         }
         return name
     }
@@ -39,7 +39,7 @@ class SwiftType {
 
     var isOptional: Bool {
         guard !name.isEmpty else { return false }
-        return  ("?!").characters.contains(name.characters.last!)
+        return  ("?!").contains(name.last!)
     }
 
     var optionalName: String {
