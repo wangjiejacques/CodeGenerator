@@ -63,8 +63,12 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <PathRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.dt.Xcode"
+         FilePath = "/Applications/Xcode.app">
+      </PathRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A03920581E0F3A7B005A6E89"
@@ -72,7 +76,7 @@
             BlueprintName = "CodeGenerator"
             ReferencedContainer = "container:CodeGenerator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
